@@ -1,0 +1,17 @@
+IF
+	Global("GaalSpoke","AR0900",1)
+	NumTimesTalkedTo(0)
+	OR(7)
+		Class(Player1,CLERIC)
+		Class(Player1,FIGHTER_CLERIC)
+		Class(Player1,CLERIC_MAGE)
+		Class(Player1,CLERIC_THIEF)
+		Class(Player1,FIGHTER_MAGE_CLERIC)
+		Class(Player1,CLERIC_RANGER)
+		Kit(Player1,ADULC)
+	Alignment(Player1,MASK_GOOD)
+THEN
+	RESPONSE #100
+		Dialogue(Player1)
+END
+

@@ -1,0 +1,343 @@
+ALTER_TRANS BOUNHA BEGIN 4 END BEGIN 1 END BEGIN
+"TRIGGER" ~Global("EvilRaelis","GLOBAL",1)
+Class(Player1,BARD_ALL)
+!Kit(Player1,ADULC)~ END
+
+ALTER_TRANS BOUNHA BEGIN 4 END BEGIN 2 END BEGIN
+"TRIGGER" ~Global("EvilRaelis","GLOBAL",1)
+OR(2)
+!Class(Player1,BARD_ALL)
+Kit(Player1,ADULC)~ END
+
+ALTER_TRANS HAERDA BEGIN 99 END BEGIN 0 END BEGIN
+"TRIGGER" ~Class(Player1,BARD_ALL)
+!Kit(Player1,ADULC)~ END
+
+ALTER_TRANS HAERDA BEGIN 99 END BEGIN 1 END BEGIN
+"TRIGGER" ~OR(2)
+!Class(Player1,BARD_ALL)
+Kit(Player1,ADULC)~ END
+
+ALTER_TRANS RAELIS BEGIN 71 END BEGIN 0 END BEGIN
+"TRIGGER" ~Global("PlayerHasStronghold","GLOBAL",0)
+Class(Player1,BARD_ALL)
+!Kit(Player1,ADULC)~ END
+
+ALTER_TRANS RAELIS BEGIN 71 END BEGIN 1 END BEGIN
+"TRIGGER" ~OR(3)
+Global("PlayerHasStronghold","GLOBAL",1)
+!Class(Player1,BARD_ALL)
+Kit(Player1,ADULC)~ END
+
+ALTER_TRANS RAELIS BEGIN 72 END BEGIN 0 END BEGIN
+"TRIGGER" ~Class(Player1,BARD_ALL)
+!Kit(Player1,ADULC)~ END
+
+ALTER_TRANS RAELIS BEGIN 72 END BEGIN 1 END BEGIN
+"TRIGGER" ~OR(2)
+!Class(Player1,BARD_ALL)
+Kit(Player1,ADULC)~ END
+
+ALTER_TRANS BRUS2 BEGIN 0 END BEGIN 1 END BEGIN
+"TRIGGER" ~Class(Player1,BARD_ALL)
+!Kit(Player1,ADULC)~ END
+
+ALTER_TRANS BRUS2 BEGIN 0 END BEGIN 2 END BEGIN
+"TRIGGER" ~OR(2)
+Class(Player1,CLERIC_ALL)
+Kit(Player1,ADULC)~ END
+
+ALTER_TRANS GAELAN BEGIN 70 END BEGIN 3 END BEGIN
+"TRIGGER" ~OR(3)
+Class(Player1,CLERIC)
+Class(Player1,CLERIC_RANGER)
+Kit(Player1,ADULC)~ END
+
+ALTER_TRANS GAELAN BEGIN 70 END BEGIN 6 END BEGIN
+"TRIGGER" ~Class(Player1,BARD)
+!Kit(Player1,ADULC)~ END
+
+REPLACE_STATE_TRIGGER BHARVAL 0 ~NumberOfTimesTalkedTo(0)
+OR(7)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Class(Player1,CLERIC_RANGER)
+Kit(Player1,ADULC)
+Alignment(Player1,MASK_GOOD)
+Global("BeholderPlot","GLOBAL",0)~
+
+REPLACE_STATE_TRIGGER BHARVAL 3 ~OR(7)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Class(Player1,CLERIC_RANGER)
+Kit(Player1,ADULC)
+InPartySlot(LastTalkedToBy,0)
+Alignment(Player1,MASK_GOOD)
+ReputationGT(Player1,14)
+Global("BeholderPlot","GLOBAL",0)
+Global("NoHelpBeholder","GLOBAL",0)~
+
+REPLACE_STATE_TRIGGER BHARVAL 5 ~OR(7)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Class(Player1,CLERIC_RANGER)
+Kit(Player1,ADULC)
+InPartySlot(LastTalkedToBy,0)
+Alignment(Player1,MASK_GOOD)
+ReputationLT(Player1,15)
+Global("BeholderPlot","GLOBAL",0)
+Global("NoHelpBeholder","GLOBAL",0)~
+
+REPLACE_STATE_TRIGGER BHNALLA 0 ~NumTimesTalkedTo(0)
+OR(6)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Kit(Player1,ADULC)
+Alignment(Player1,MASK_EVIL)
+Global("BeholderPlot","GLOBAL",0)~
+
+REPLACE_STATE_TRIGGER BHNALLA 3 ~OR(6)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Kit(Player1,ADULC)
+InPartySlot(LastTalkedToBy,0)
+Alignment(Player1,MASK_EVIL)
+Global("BeholderPlot","GLOBAL",0)
+Global("NoHelpBeholder","GLOBAL",0)~
+
+REPLACE_STATE_TRIGGER BHOISIG 4 ~OR(6)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Kit(Player1,ADULC)
+InPartySlot(LastTalkedToBy,0)
+ReputationGT(Player1,14)
+Alignment(Player1,MASK_GENEUTRAL)
+Global("BeholderPlot","GLOBAL",0)
+Global("NoHelpBeholder","GLOBAL",0)~
+
+REPLACE_STATE_TRIGGER BHOISIG 5 ~OR(6)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Kit(Player1,ADULC)
+InPartySlot(LastTalkedToBy,0)
+ReputationLT(Player1,15)
+Alignment(Player1,MASK_GENEUTRAL)
+Global("BeholderPlot","GLOBAL",0)
+Global("NoHelpBeholder","GLOBAL",0)~
+
+REPLACE_STATE_TRIGGER BHOISIG 6 ~!Class(Player1,CLERIC)
+!Class(Player1,FIGHTER_CLERIC)
+!Class(Player1,CLERIC_MAGE)
+!Class(Player1,CLERIC_THIEF)
+!Class(Player1,FIGHTER_MAGE_CLERIC)
+!Kit(Player1,ADULC)
+InPartySlot(LastTalkedToBy,0)
+ReputationGT(Player1,14)
+Global("BeholderPlot","GLOBAL",0)
+Global("NoHelpBeholder","GLOBAL",0)~
+
+REPLACE_STATE_TRIGGER BHOISIG 7 ~!Class(Player1,CLERIC)
+!Class(Player1,FIGHTER_CLERIC)
+!Class(Player1,CLERIC_MAGE)
+!Class(Player1,CLERIC_THIEF)
+!Class(Player1,FIGHTER_MAGE_CLERIC)
+!Kit(Player1,ADULC)
+InPartySlot(LastTalkedToBy,0)
+ReputationLT(Player1,15)
+Global("BeholderPlot","GLOBAL",0)
+Global("NoHelpBeholder","GLOBAL",0)~
+
+REPLACE_STATE_TRIGGER BHOISIG 42 ~Global("BeholderPlot","GLOBAL",2)
+Global("JoinHelm","GLOBAL",0)
+OR(2)
+Class(Player1,CLERIC_ALL)
+Kit(Player1,ADULC)~
+
+REPLACE_STATE_TRIGGER BHOISIG 59 ~Global("BeholderPlot","GLOBAL",2)
+!Class(Player1,CLERIC_ALL)
+!Kit(Player1,ADULC)~
+
+ALTER_TRANS BHOISIG BEGIN 0 END BEGIN 0 END BEGIN
+"TRIGGER" ~OR(6)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Kit(Player1,ADULC)
+!Kit(Player1,GODHELM)
+!Kit(Player1,GODTALOS)
+!Kit(Player1,GODLATHANDER)~ END
+
+ALTER_TRANS BHOISIG BEGIN 0 END BEGIN 1 END BEGIN
+"TRIGGER" ~!Class(Player1,CLERIC)
+!Class(Player1,FIGHTER_CLERIC)
+!Class(Player1,CLERIC_MAGE)
+!Class(Player1,CLERIC_THIEF)
+!Class(Player1,FIGHTER_MAGE_CLERIC)
+!Kit(Player1,ADULC)~ END
+
+ALTER_TRANS BHOISIG BEGIN 30 END BEGIN 0 END BEGIN
+"TRIGGER" ~Global("PlayerHasStronghold","GLOBAL",0)
+OR(6)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Kit(Player1,ADULC)~ END
+
+ALTER_TRANS BHOISIG BEGIN 30 END BEGIN 1 END BEGIN
+"TRIGGER" ~!Class(Player1,CLERIC)
+!Class(Player1,FIGHTER_CLERIC)
+!Class(Player1,CLERIC_MAGE)
+!Class(Player1,CLERIC_THIEF)
+!Class(Player1,FIGHTER_MAGE_CLERIC)
+!Kit(Player1,ADULC)~ END
+
+ALTER_TRANS BORINALL BEGIN 8 END BEGIN 0 END BEGIN
+"TRIGGER" ~OR(6)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Kit(Player1,ADULC)
+Alignment(Player1,MASK_EVIL)
+Global("Stripped","GLOBAL",0)~ END
+
+ALTER_TRANS BORINALL BEGIN 8 END BEGIN 3 END BEGIN
+"TRIGGER" ~OR(7)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Class(Player1,CLERIC_RANGER)
+Kit(Player1,ADULC)
+Alignment(Player1,MASK_GOOD)~ END
+
+REPLACE_STATE_TRIGGER SCSAIN 31 ~OR(8)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Class(Player1,CLERIC_RANGER)
+Kit(Player1,ADULC)
+Global("JoinLathander","GLOBAL",1)
+InPartySlot(LastTalkedToBy,0)
+Global("StealingPlot","GLOBAL",0)
+Global("SculptorDone","GLOBAL",1)~
+
+ALTER_TRANS SCSAIN BEGIN 38 END BEGIN 0 END BEGIN
+"TRIGGER" ~OR(7)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Class(Player1,CLERIC_RANGER)
+Kit(Player1,ADULC)~ END
+
+ALTER_TRANS SCSAIN BEGIN 38 END BEGIN 4 END BEGIN
+"TRIGGER" ~!Class(Player1,CLERIC)
+!Class(Player1,FIGHTER_CLERIC)
+!Class(Player1,CLERIC_MAGE)
+!Class(Player1,CLERIC_THIEF)
+!Class(Player1,FIGHTER_MAGE_CLERIC)
+!Class(Player1,CLERIC_RANGER)
+!Kit(Player1,ADULC)~ END
+
+ALTER_TRANS SCSAIN BEGIN 38 END BEGIN 5 END BEGIN
+"TRIGGER" ~!Class(Player1,CLERIC)
+!Class(Player1,FIGHTER_CLERIC)
+!Class(Player1,CLERIC_MAGE)
+!Class(Player1,CLERIC_THIEF)
+!Class(Player1,FIGHTER_MAGE_CLERIC)
+!Class(Player1,CLERIC_RANGER)
+!Kit(Player1,ADULC)~ END
+
+ALTER_TRANS TRAVIN BEGIN 1 END BEGIN 1 END BEGIN
+"TRIGGER" ~OR(6)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Kit(Player1,ADULC)
+Alignment(Player1,MASK_EVIL)~ END
+
+ALTER_TRANS TRAVIN BEGIN 1 END BEGIN 2 END BEGIN
+"TRIGGER" ~OR(7)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Class(Player1,CLERIC_RANGER)
+Kit(Player1,ADULC)
+Alignment(Player1,MASK_GOOD)~ END
+
+ALTER_TRANS TRAVIN BEGIN 4 END BEGIN 1 END BEGIN
+"TRIGGER" ~OR(6)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Kit(Player1,ADULC)
+Alignment(Player1,MASK_EVIL)~ END
+
+ALTER_TRANS TRAVIN BEGIN 4 END BEGIN 2 END BEGIN
+"TRIGGER" ~OR(7)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Class(Player1,CLERIC_RANGER)
+Kit(Player1,ADULC)
+Alignment(Player1,MASK_GOOD)~ END
+
+ALTER_TRANS TRAVIN BEGIN 6 END BEGIN 1 END BEGIN
+"TRIGGER" ~OR(6)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Kit(Player1,ADULC)
+Alignment(Player1,MASK_EVIL)~ END
+
+ALTER_TRANS TRAVIN BEGIN 6 END BEGIN 2 END BEGIN
+"TRIGGER" ~OR(7)
+Class(Player1,CLERIC)
+Class(Player1,FIGHTER_CLERIC)
+Class(Player1,CLERIC_MAGE)
+Class(Player1,CLERIC_THIEF)
+Class(Player1,FIGHTER_MAGE_CLERIC)
+Class(Player1,CLERIC_RANGER)
+Kit(Player1,ADULC)
+Alignment(Player1,MASK_GOOD)~ END
