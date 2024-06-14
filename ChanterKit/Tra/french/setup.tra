@@ -1,0 +1,202 @@
+@0 = ~Kit de Chantre~
+@1 = ~chantre~
+@2 = ~Chantre~
+@3 = ~CHANTRE: Les chantres sont des prêtres choristes qui se spécialisent dans la sauvegarde et la diffusion du savoir ancien. Imprégnés de puissance divine et de secrets primordiaux, leurs chants ont de puissantes propriétés magiques qui peuvent aider les alliés ou frapper les ennemis.
+
+Avantages:
+- A accès à une sélection de sorts de prêtre.
+- Peut lancer des sorts en armure.
+- Immunisé contre les effets qui provoquent l'échec de l'incantation.
+- A accès à un certain nombre de chants. Un chant fonctionne comme un chant de barde et affecte tous les alliés proches.
+ Niveau 1 : Sanctum (+2 à tous les jets de sauvegarde, protection contre la peur)
+ Niveau 6 : Contegitas (+33% de résistance au feu, au froid, à l’électricité et à l'acide)
+ Niveau 9 : Omnimens (immunité au charme, à la confusion et à l'immobilisation)
+ Niveau 14 : Salvea (régénère 1 pv par round, immunité au drainage de niveau)
+ Niveau 17 : Veritas (supprime toutes les illusions à proximité et accorde Vision véritable)
+
+Désavantages:
+- Ne peut pas apprendre de sorts de mage
+- Ne peut pas voler à la tire
+- Ne peut pas apprendre le combat à deux armes.~
+@4 = ~Sanctum~
+@5 = ~Contegitas~
+@6 = ~Omnimens~
+@7 = ~Salvea~
+@8 = ~Veritas~
+@9 = ~Expulsions~
+@10 = ~Expulsions
+Ce chant a le pouvoir de repousser les êtres impurs. Tant qu'elle est chantée, toute créature non-morte ou démoniaque à portée subit 4D6 dégâts de feu par round, et doit réussir un jet de sauvetage contre la mort ou être détruite.~
+@11 = ~Chant amélioré~
+@12 = ~Chant amélioré
+Choisir cette capacité améliore les chants du chantre de la manière suivante :
+
+Sanctum : +4 à tous les jets de sauvegarde au lieu de +2
+Contegitas : +66% de résistances au lieu de +33%.
+Salvea : régénération de 3 pv par round au lieu de 1 pv~
+@13 = ~Méditation reposante~
+@14 = ~Méditation reposante
+En se concentrant un instant sur son monde intérieur, le chantre rafraîchit son esprit, se rappelant deux sorts mémorisés qu'il a déjà lancé. Ces sorts sont choisis par niveau de sort, et les sorts de niveau supérieur sont rendus en premier. De plus, la méditation reposante effacera toute fatigue.
+
+Cette capacité peut être prise 3 fois pour un total de 3 utilisations par jour.~
+@15 = ~Mantra de purification~
+@16 = ~Mantra de purification
+Niveau : Quête
+Portée : Toucher
+Durée : Permanente
+Temps d'incantation : 4
+Zone d'effet : 1 créature
+Jet de sauvegarde : Aucun
+
+Le lanceur de ce sort renforce un son avec la puissance divine. Le mantra ainsi créé a la capacité de transformer le corps d'une créature, en supprimant les blessures et les maladies.
+
+Pratiquement, ce sort combine les effets des sorts de guérison et de restauration mineure. Cependant il n'épuise pas le lanceur de sorts.~
+@17 = ~Murmure vigilant~
+@18 = ~Murmure vigilant
+Niveau : Quête
+Portée : Toucher
+Durée : 2 tours
+Temps d'incantation : 1
+Zone d'effet : 1 créature
+Jet de sauvegarde : Aucun
+
+Ce sort permet au chantre d'imprégner un allié d'une immunité presque totale à la magie offensive. Pour deux rounds, le destinataire gagne 100% de résistance à la magie. Après la fin du sort, il redeviendra vulnérable à la magie.~
+@19 = ~Alchimie~
+@20 = ~Alchimie
+Les chantres expérimentés peuvent utiliser leur expertise pour produire des potions magiques communes. Avec la compétence Alchimie, le chantre peut créer l'un des huit types de potions, une fois par jour.
+Les potions qu'un chantre peut créer sont choisies au hasard dans la liste suivante :
+1) Potion de Force mentale
+2) Potion de Défense
+3) Potion de Grands soins
+4) Potion de Soin majeur
+5) Potion de Régénération
+6) Antidote
+7) Potion de Protection contre la magie
+8) Potion de Force de Géant du froid des voleurs~
+@21 = ~Écriture de parchemins~
+@22 = ~Écriture de parchemins
+Cette capacité permet au chantre de créer des parchemins de sorts de niveau moyen. Les parchemins que le chantre peut créer sont choisis au hasard dans la liste suivante :
+1) Soins des blessures graves
+2) Neutralisation du Poison
+3) Domination Mentale
+4) Harmonie Défensive
+5) Protection contre le mal, rayon de 3 m
+6) Force de Champion
+7) Ordres Chaotiques
+8) Colonne de feu
+9) Rappel à la vie~
+@23 = ~Flûte mystique~
+@24 = ~Flûte mystique
+Cette capacité invoque une flûte mystique. Lorsqu'on en joue, la flûte peut être utilisée pour lancer les sorts suivants :
+Barrière de lames - 1 charge
+Résurrection - 1 charge
+Rayon divin - 3 charges
+
+Les pouvoirs magiques de la flûte sont utilisés de la même manière que les pouvoirs d'une baguette. La flûte dure 1 jour.~
+@25 = ~Sort suppl. niveau 1~
+@26 = ~En choisissant cette capacité, le chantre peut lancer un sort supplémentaire du premier niveau.~
+@27 = ~Sort suppl. niveau 2~
+@28 = ~En choisissant cette capacité, le chantre peut lancer un sort supplémentaire du 2ème niveau.~
+@29 = ~Sort suppl. niveau 3~
+@30 = ~En choisissant cette capacité, le chantre peut lancer un sort supplémentaire du 3ème niveau.~
+@31 = ~Sort suppl. niveau 4~
+@32 = ~En choisissant cette capacité, le chantre peut lancer un sort supplémentaire du 4ème niveau.~
+@33 = ~Sort suppl. niveau 5~
+@34 = ~En choisissant cette capacité, le chantre peut lancer un sort supplémentaire du 5ème niveau.~
+@35 = ~Sort suppl. niveau 6~
+@36 = ~En choisissant cette capacité, le chantre peut lancer un sort supplémentaire du 6ème niveau.~
+@37 = ~le Chantre gagne la forteresse du Pretre a la place de celle du Barde~
+@38 = ~(Le kit de Chantre doit être installé pour que ce composant puisse être installé.)~
+
+// WeiDU prompts
+@-1000= "Le mod %TP2_FILE_NAME% contient"
+@-1001= "composants optionnels distincts.
+Pour gagner du temps, vous pouvez choisir ce que vous souhaitez faire d'eux
+au niveau general plutot que de repondre aux questions pour chacun.
+"
+@-1002= "Que faut-il faire de tous les composants qui NE sont PAS ENCORE installes ?
+Les [I]nstaller, les [S]auter, dem[A]nder pour chacun ? "
+@-1003= "Que faut-il faire de tous les composants qui sont DEJA installes ?
+Les [R]einstaller, les s[U]pprimer, les [S]auter, dem[A]nder pour chacun ? "
+
+@-1004= "S'IL VOUS PLAIT, envoyez par e-mail le fichier"
+@-1005= "a"
+
+@-1006= "Installer le composant ["
+@-1007= "] ?
+[R]einstaller, co[N]server, s[U]pprimer ou [Q]uitter ? "
+@-1008= "] ?
+[I]nstaller, [N]e pas installer ou [Q]uitter ? "
+
+@-1009= "Entrez une partie du nom du module : "
+
+@-1010= "Reinstallation du composant ["
+@-1011= "] "
+@-1012= "Reinstallation dans la langue"
+
+@-1013= "Suppression de l'ancienne installation de ["
+@-1014= "] au prealable..."
+@-1015= "SUPPRESSION REUSSIE DE L'ANCIEN"
+
+@-1016= "Installation en cours"
+@-1017= "ERREUR pendant l'installation de ["
+@-1018= "], retour a l'etat anterieur"
+@-1019= "INSTALLATION REUSSIE"
+@-1020= "Saute"
+@-1021= "Suppression de ["
+@-1022= "] (composant #"
+@-1023= ")"
+@-1024= "SUPPRESSION REUSSIE DE ["
+
+@-1025= "] ?
+[R]einstaller, co[N]server, s[U]pprimer, [Q]uitter ou choisir un parmi :"
+@-1026= "] ?
+[N]e pas installer, [Q]uitter ou choisir un parmi :"
+@-1027= " (installe actuellement)"
+
+@-1028= "Souhaitez-vous afficher les composants de ["
+@-1029= "] ?
+[Y]Oui, [N]on ? "
+
+@-1030= "] ?
+choisir un parmi :"
+@-1031= "] ?
+[R]einstaller, co[N]server, [Q]uitter ou choisir un parmi :"
+@-1032= "INSTALLATION ECHOUEE A CAUSE D'ERREURS"
+@-1033= "INSTALLATION AVEC DES ALERTES"
+@-1034= "Souhaitez-vous afficher les instructions (ReadMe) ? [Y]Oui [N]on"
+@-1035= "Dans la langue"
+
+@-1036= "Saute le GROUPE ["
+@-1037= "] pour cause d'absence des pre-requis."
+
+@-1038= "dem[A]nder pour chaque composant, tout [S]auter, ou choisir une selection pre-definie :"
+@-1039= "dem[A]nder pour chaque composant, [R]einstaller la configuration courante, tout s[U]pprimer, tout [S]auter, ou choisir une selection pre-definie :"
+
+@-1040= "
+Veuillez choisir la langue dans laquelle vous souhaitez jouer au jeu.
+Si par la suite vous desirez jouer au jeu dans une langue differente, il vous
+faudra editer le fichier weidu.conf et reinstaller vos mods.
+"
+@-1041= "Tcheque"
+@-1042= "Allemand"
+@-1043= "Anglais"
+@-1044= "Espagnol"
+@-1045= "Francais"
+@-1046= "Italien"
+@-1047= "Polonais"
+@-1048= "Portugais"
+@-1049= "Turc"
+@-1050= "Japonais"
+@-1051= "Coreen"
+@-1052= "Chinois simplifie"
+@-1053= "Russe"
+@-1054= "Ukrainien"
+
+@-1060= "
+Ce jeu est disponible en plusieurs langues mais WeiDU ne sait pas laquelle a ete choisie quand ce mod a ete installe.
+
+Veuillez indiquer quelle langue du jeu a ete utilisee quand vous avez installe ce mod. Votre choix servira jusqu'a ce que WeiDU s'arrete mais ne sera pas memorise.
+"
+@-1061= "
+Utilisation de"
+@-1062= " et "

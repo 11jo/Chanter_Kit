@@ -1,0 +1,109 @@
+@0 = ~Chanter Kit~
+@1 = ~chanter~
+@2 = ~Chanter~
+@3 = ~CHANTER: Chanters are monk-priests who specialize in the keeping and telling of ancient lore. Imbued by divine power and primordial secrets, their chants bear powerful magical properties that can aid allies or smite enemies.
+
+Advantages:
+-  Has access to a selection of priest spells.
+-  Can cast spells in armor.
+-  Immune to effects that cause casting failure.
+-  Has access to a number of chants. A chant works like a bard song and affects all nearby allies.
+ Level 1: Sanctum (+2 to all saves, protection from fear)
+ Level 6: Contegitas (+33% fire, cold, lightning, and acid resistance)
+ Level 9: Omnimens (immunity to charm, confusion, and hold effects)
+ Level 14: Salve (heal 1 HP each round, immunity to level drain)
+ Level 17: Veritas (removes all nearby illusions and grants true seeing)
+
+Disadvantages:
+-  Cannot learn or cast wizard spells.
+-  Cannot pick pockets.
+-  No proficiency in two-weapon fighting.~
+@4 = ~Sanctum~
+@5 = ~Contegitas~
+@6 = ~Omnimens~
+@7 = ~Salve~
+@8 = ~Veritas~
+@9 = ~Expulses~
+@10 = ~Expulses
+This chant has the power to repel unholy beings. As long as it's being sung, any undead or demonic creature in range takes 4D6 fire damage each round, and must roll a successful saving throw vs. death or be destroyed.~
+@11 = ~Improved Chanting~
+@12 = ~Improved Chanting
+Choosing this ability enhances the chanter's songs in the following manner:
+
+Sanctum: +4 to all saves instead of +2
+Contegitas: +66% resistances instead of +33%
+Salve: heals 3 HP per round instead of 1 HP~
+@13 = ~Restful Meditation~
+@14 = ~Restful Meditation
+Focusing inward for a moment the chanter refreshes his mind, recalling two memorized spells which he has already cast. These spells are chosen by spell level, and the highest level spells are returned first. In addition, restful meditation will clear any state of exhaustion.
+
+This ability can be taken 3 times for a total of 3 uses per day.~
+@15 = ~Mantra of Purification~
+@16 = ~Mantra of Purification
+Level: Quest
+Range: Touch
+Duration: Permanent
+Casting Time: 4
+Area of Effect: 1 Creature
+Saving Throw: None
+
+The caster of this spell augments a sound with divine power. The mantra created this way has the ability to transform the body of a single creature, cleaning away wounds and illnesses.
+
+Practically, this spell combines the effects of the heal and lesser restoration spells. However, it does not exhaust the caster.~
+@17 = ~Warding Whisper~
+@18 = ~Warding Whisper
+Level: Quest
+Range: Touch
+Duration: 2 rounds
+Casting Time: 1
+Area of Effect: 1 Creature
+Saving Throw: None
+
+This spell enables the chanter to imbue an ally with almost complete immunity to offensive magic. For two rounds, the recipient gains 100% magic resistance. After the spell wears off, he will become vulnerable to magic once again.~
+@19 = ~Alchemy~
+@20 = ~Alchemy
+Skilled chanters may use their expertise to produce common magical potions. With the Alchemy skill, the chanter can create one of eight types of potions, once per day.
+
+The potions a chanter can create are randomly chosen from the following list:
+1) Potion of Fortitude
+2) Potion of Defense
+3) Potion of Extra Healing
+4) Potion of Superior Healing
+5) Potion of Regeneration
+6) Antidote
+7) Potion of Magic Shielding
+8) Potion of Frost Giant Strength, only useable by rogue classes~
+@21 = ~Scribe Scrolls~
+@22 = ~Scribe Scrolls
+This ability allows a chanter to create mid level spell scrolls. The scrolls that the chanter can create are randomly chosen from the following list:
+1) Cure Serious Wounds
+2) Neutralize Poison
+3) Mental Domination
+4) Defensive Harmony
+5) Protection From Evil 10' Radius
+6) Champion's Strength
+7) Chaotic Commands
+8) Flame Strike
+9) Raise Dead~
+@23 = ~Mystic Flute~
+@24 = ~Mystic Flute
+This ability summons a mystic flute. When played, the flute can be used to cast the following spells:
+Blade Barrier - 1 charge
+Resurrect - 1 charge
+Bolt of Glory - 3 charges
+
+The spell-like abilities on the Flute are used in the same way that a wand's powers are used. The Flute lasts for 1 day.~
+@25 = ~Extra Level 1 Spell~
+@26 = ~Choosing this ability allows the chanter to cast one additional Level 1 spell.~
+@27 = ~Extra Level 2 Spell~
+@28 = ~Choosing this ability allows the chanter to cast one additional Level 2 spell.~
+@29 = ~Extra Level 3 Spell~
+@30 = ~Choosing this ability allows the chanter to cast one additional Level 3 spell.~
+@31 = ~Extra Level 4 Spell~
+@32 = ~Choosing this ability allows the chanter to cast one additional Level 4 spell.~
+@33 = ~Extra Level 5 Spell~
+@34 = ~Choosing this ability allows the chanter to cast one additional Level 5 spell.~
+@35 = ~Extra Level 6 Spell~
+@36 = ~Choosing this ability allows the chanter to cast one additional Level 6 spell.~
+@37 = ~Chanter gains cleric stronghold instead of bard one~
+@38 = ~(Chanter Kit main component required.)~

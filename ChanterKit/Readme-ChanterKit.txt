@@ -1,10 +1,10 @@
 
                               -------------                              
                                Chanter Kit
-                                  v 1.4a
+                                  v 1.5
                               -------------
 
-Bonus Bard Kit for Baldur's Gate II: Throne of Bhaal.
+Bonus Bard Kit for Baldur's Gate II: Throne of Bhaal and the EE games (except Planescape)
 
 
 
@@ -112,6 +112,10 @@ v 1.4: Added a new component that allows chanters to claim the cleric
 v 1.4a: Fixed a bug that caused first level chanter characters to cast
         Magic Missile on themselves after character creation and when
         switching between chants (don't ask)
+
+V 1.5: Trayfied and adapted for the EE games (by deratiseur)
+
+V 1.6: Add EET compatibility (by deratiseur)
 
 
 

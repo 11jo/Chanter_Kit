@@ -1,9 +1,31 @@
 BACKUP ~ChanterKit/backup~
 AUTHOR ~adul@adul.net~
-README ~Readme-ChanterKit.txt~
+README ~ChanterKit/Readme-ChanterKit.txt~
+
+ALWAYS
+	ACTION_DEFINE_ARRAY Ad_reload BEGIN
+	"setup.tra"
+	END
+	ACTION_DEFINE_ARRAY Ad_noconvert BEGIN END
+		LAF HANDLE_CHARSETS
+		INT_VAR
+		infer_charset = 1
+		STR_VAR
+		tra_path = EVAL ~%MOD_FOLDER%/Tra~
+		noconvert_array = Ad_noconvert
+		reload_array = Ad_reload
+	END
+END
+
 ASK_EVERY_COMPONENT
 
-BEGIN ~Chanter Kit~
+LANGUAGE "English" "english"
+         ~ChanterKit/Tra/english/setup.tra~
+LANGUAGE "Francais" "french"
+         ~ChanterKit/Tra/french/setup.tra~
+
+BEGIN @0
+INCLUDE ~ChanterKit/fl#add_kit_ee.tpa~
 
 ADD_KIT ~ADULC0~
  ~ADULC0               1           1           1           1           1           1           1           1~
@@ -19,25 +41,13 @@ ADD_KIT ~ADULC0~
  ~0x00004000   5~
  ~ADULC~
  ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
- SAY ~chanter~
- SAY ~Chanter~
- SAY ~CHANTER: Chanters are monk-priests who specialize in the keeping and telling of ancient lore. Imbued by divine power and primordial secrets, their chants bear powerful magical properties that can aid allies or smite enemies.
-
-Advantages:
--  Has access to a selection of priest spells.
--  Can cast spells in armor.
--  Immune to effects that cause casting failure.
--  Has access to a number of chants. A chant works like a bard song and affects all nearby allies.
- Level 1: Sanctum (+2 to all saves, protection from fear)
- Level 6: Contegitas (+33% fire, cold, lightning, and acid resistance)
- Level 9: Omnimens (immunity to charm, confusion, and hold effects)
- Level 14: Salve (heal 1 HP each round, immunity to level drain)
- Level 17: Veritas (removes all nearby illusions and grants true seeing)
-
-Disadvantages:
--  Cannot learn or cast wizard spells.
--  Cannot pick pockets.
--  No proficiency in two-weapon fighting.~
+ SAY @1
+ SAY @2
+ SAY @3
+ 
+ ACTION_IF GAME_IS ~BGEE BG2EE IWDEE EET~ THEN BEGIN
+	LAF fl#add_kit_ee	STR_VAR kit_name = ADULC0	END
+END
 
 ADD_KIT ~ADULC~
  ~ADULC                1           1           1           1           1           1           1           1~
@@ -53,25 +63,13 @@ ADD_KIT ~ADULC~
  ~0x00007FC0   5~
  ~ADULC~
  ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
- SAY ~chanter~
- SAY ~Chanter~
- SAY ~CHANTER: Chanters are monk-priests who specialize in the keeping and telling of ancient lore. Imbued by divine power and primordial secrets, their chants bear powerful magical properties that can aid allies or smite enemies.
-
-Advantages:
--  Has access to a selection of priest spells.
--  Can cast spells in armor.
--  Immune to effects that cause casting failure.
--  Has access to a number of chants. A chant works like a bard song and affects all nearby allies.
- Level 1: Sanctum (+2 to all saves, protection from fear)
- Level 6: Contegitas (+33% fire, cold, lightning, and acid resistance)
- Level 9: Omnimens (immunity to charm, confusion, and hold effects)
- Level 14: Salve (heal 1 HP each round, immunity to level drain)
- Level 17: Veritas (removes all nearby illusions and grants true seeing)
-
-Disadvantages:
--  Cannot learn or cast wizard spells.
--  Cannot pick pockets.
--  No proficiency in two-weapon fighting.~
+ SAY @1
+ SAY @2
+ SAY @3
+ 
+  ACTION_IF GAME_IS ~BGEE BG2EE IWDEE EET~ THEN BEGIN
+	LAF fl#add_kit_ee	STR_VAR kit_name = ADULC	END
+END
 
 COPY ~ChanterKit/LUADULC.2DA~ ~override~
 COPY ~ChanterKit/r/ADULC0.SPL~ ~override~
@@ -80,114 +78,66 @@ COMPILE ~ChanterKit/r/ADULC0.BAF~
  // Spells & Abilities
 COPY ~ChanterKit/r/ADULC01.SPL~ ~override~ // Level 1 adjustments
 COPY ~ChanterKit/r/ADULC02.SPL~ ~override~ // Chant: Sanctum
- SAY NAME1 ~Sanctum~
+ SAY NAME1 @4
 COPY ~ChanterKit/r/ADULC02A.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC02B.SPL~ ~override~
- SAY NAME1 ~Sanctum~
+ SAY NAME1 @4
 COPY ~ChanterKit/r/ADULC02C.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC02B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC03.SPL~ ~override~ // Chant: Contegitas
- SAY NAME1 ~Contegitas~
+ SAY NAME1 @5
 COPY ~ChanterKit/r/ADULC03A.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC03B.SPL~ ~override~
- SAY NAME1 ~Contegitas~
+ SAY NAME1 @5
 COPY ~ChanterKit/r/ADULC03C.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC03B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC04.SPL~ ~override~ // Chant: Omnimens
- SAY NAME1 ~Omnimens~
+ SAY NAME1 @6
 COPY ~ChanterKit/r/ADULC04A.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC04B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC05.SPL~ ~override~ // Chant: Salve
- SAY NAME1 ~Salve~
+ SAY NAME1 @7
 COPY ~ChanterKit/r/ADULC05A.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC05B.SPL~ ~override~
- SAY NAME1 ~Salve~
+ SAY NAME1 @7
 COPY ~ChanterKit/r/ADULC05C.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC05B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC06.SPL~ ~override~ // Chant: Veritas
- SAY NAME1 ~Veritas~
+ SAY NAME1 @8
 COPY ~ChanterKit/r/ADULC06A.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC06B.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC06B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC07.SPL~ ~override~ // HLA Chant: Expulses
- SAY NAME1 ~Expulses~
- SAY UNIDENTIFIED_DESC ~Expulses
-This chant has the power to repel unholy beings. As long as it's being sung, any undead or demonic creature in range takes 4D6 fire damage each round, and must roll a successful saving throw vs. death or be destroyed.~
+ SAY NAME1 @9
+ SAY UNIDENTIFIED_DESC @10
 COPY ~ChanterKit/r/ADULC07A.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC07B.SPL~ ~override~
 COPY ~ChanterKit/r/ADULC07C.EFF~ ~override~
 COPY ~ChanterKit/r/ADULC07D.EFF~ ~override~
 COPY ~ChanterKit/r/ADULC07B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC08.SPL~ ~override~ // HLA: Improved Chanting
- SAY NAME1 ~Improved Chanting~
- SAY UNIDENTIFIED_DESC ~Improved Chanting
-Choosing this ability enhances the chanter's songs in the following manner:
-
-Sanctum: +4 to all saves instead of +2
-Contegitas: +66% resistances instead of +33%
-Salve: heals 3 HP per round instead of 1 HP~
+ SAY NAME1 @11
+ SAY UNIDENTIFIED_DESC @12
 COPY ~ChanterKit/r/ADULC09.SPL~ ~override~ // HLA: Restful Meditation
- SAY NAME1 ~Restful Meditation~
- SAY UNIDENTIFIED_DESC ~Restful Meditation
-Focusing inward for a moment the chanter refreshes his mind, recalling two memorized spells which he has already cast. These spells are chosen by spell level, and the highest level spells are returned first. In addition, restful meditation will clear any state of exhaustion.
-
-This ability can be taken 3 times for a total of 3 uses per day.~
+ SAY NAME1 @13
+ SAY UNIDENTIFIED_DESC @14
 COPY ~ChanterKit/r/ADULC09B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC10.SPL~ ~override~ // HLA Spell: Mantra of Purification
- SAY NAME1 ~Mantra of Purification~
- SAY UNIDENTIFIED_DESC ~Mantra of Purification
-Level: Quest
-Range: Touch
-Duration: Permanent
-Casting Time: 4
-Area of Effect: 1 Creature
-Saving Throw: None
-
-The caster of this spell augments a sound with divine power. The mantra created this way has the ability to transform the body of a single creature, cleaning away wounds and illnesses.
-
-Practically, this spell combines the effects of the heal and lesser restoration spells. However, it does not exhaust the caster.~
+ SAY NAME1 @15
+ SAY UNIDENTIFIED_DESC @16
 COPY ~ChanterKit/r/ADULC10B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC10C.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC11.SPL~ ~override~ // HLA Spell: Warding Whisper
- SAY NAME1 ~Warding Whisper~
- SAY UNIDENTIFIED_DESC ~Warding Whisper
-Level: Quest
-Range: Touch
-Duration: 2 rounds
-Casting Time: 1
-Area of Effect: 1 Creature
-Saving Throw: None
-
-This spell enables the chanter to imbue an ally with almost complete immunity to offensive magic. For two rounds, the recipient gains 100% magic resistance. After the spell wears off, he will become vulnerable to magic once again.~
+ SAY NAME1 @17
+ SAY UNIDENTIFIED_DESC @18
 COPY ~ChanterKit/r/ADULC11B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC11C.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC12.SPL~ ~override~ // HLA: Alchemy
- SAY NAME1 ~Alchemy~
- SAY UNIDENTIFIED_DESC ~Alchemy
-Skilled chanters may use their expertise to produce common magical potions. With the Alchemy skill, the chanter can create one of eight types of potions, once per day.
-
-The potions a chanter can create are randomly chosen from the following list:
-1) Potion of Fortitude
-2) Potion of Defense
-3) Potion of Extra Healing
-4) Potion of Superior Healing
-5) Potion of Regeneration
-6) Antidote
-7) Potion of Magic Shielding
-8) Potion of Frost Giant Strength, only useable by rogue classes~
+ SAY NAME1 @19
+ SAY UNIDENTIFIED_DESC @20
 COPY ~ChanterKit/r/ADULC13.SPL~ ~override~ // HLA: Scribe Scrolls
- SAY NAME1 ~Scribe Scrolls~
- SAY UNIDENTIFIED_DESC ~Scribe Scrolls
-This ability allows a chanter to create mid level spell scrolls. The scrolls that the chanter can create are randomly chosen from the following list:
-1) Cure Serious Wounds
-2) Neutralize Poison
-3) Mental Domination
-4) Defensive Harmony
-5) Protection From Evil 10' Radius
-6) Champion's Strength
-7) Chaotic Commands
-8) Flame Strike
-9) Raise Dead~
+ SAY NAME1 @21
+ SAY UNIDENTIFIED_DESC @22
 COPY ~ChanterKit/r/ADULC13A.ITM~ ~override~
 COPY ~ChanterKit/r/ADULC13B.ITM~ ~override~
 COPY ~ChanterKit/r/ADULC13C.ITM~ ~override~
@@ -198,18 +148,12 @@ COPY ~ChanterKit/r/ADULC13G.ITM~ ~override~
 COPY ~ChanterKit/r/ADULC13H.ITM~ ~override~
 COPY ~ChanterKit/r/ADULC13I.ITM~ ~override~
 COPY ~ChanterKit/r/ADULC14.SPL~ ~override~ // HLA: Mystic Flute
- SAY NAME1 ~Mystic Flute~
- SAY UNIDENTIFIED_DESC ~Mystic Flute
-This ability summons a mystic flute. When played, the flute can be used to cast the following spells:
-Blade Barrier - 1 charge
-Resurrect - 1 charge
-Bolt of Glory - 3 charges
-
-The spell-like abilities on the Flute are used in the same way that a wand's powers are used. The Flute lasts for 1 day.~
+ SAY NAME1 @23
+ SAY UNIDENTIFIED_DESC @24
 COPY ~ChanterKit/r/ADULC14.EFF~ ~override~
 COPY ~ChanterKit/r/ADULC14.ITM~ ~override~
- SAY NAME1 ~Mystic Flute~
- SAY NAME2 ~Mystic Flute~
+ SAY NAME1 @23
+ SAY NAME2 @23
 
  // Converted Priest Spells
 COPY ~ChanterKit/r/ADULCS.SPL~ ~override~
@@ -293,28 +237,28 @@ COPY ~ChanterKit/r/ADULCS69.SPL~ ~override~
 COPY ~ChanterKit/r/ADULCS6A.SPL~ ~override~
 COPY ~ChanterKit/r/ADULCS6B.SPL~ ~override~
 COPY ~ChanterKit/r/ADULCSS1.SPL~ ~override~
- SAY NAME1 ~Extra Level 1 Spell~
- SAY UNIDENTIFIED_DESC ~Choosing this ability allows the chanter to cast one additional Level 1 spell.~
+ SAY NAME1 @25
+ SAY UNIDENTIFIED_DESC @26
 COPY ~ChanterKit/r/ADULCSS2.SPL~ ~override~
- SAY NAME1 ~Extra Level 2 Spell~
- SAY UNIDENTIFIED_DESC ~Choosing this ability allows the chanter to cast one additional Level 2 spell.~
+ SAY NAME1 @27
+ SAY UNIDENTIFIED_DESC @28
 COPY ~ChanterKit/r/ADULCSS3.SPL~ ~override~
- SAY NAME1 ~Extra Level 3 Spell~
- SAY UNIDENTIFIED_DESC ~Choosing this ability allows the chanter to cast one additional Level 3 spell.~
+ SAY NAME1 @29
+ SAY UNIDENTIFIED_DESC @30
 COPY ~ChanterKit/r/ADULCSS4.SPL~ ~override~
- SAY NAME1 ~Extra Level 4 Spell~
- SAY UNIDENTIFIED_DESC ~Choosing this ability allows the chanter to cast one additional Level 4 spell.~
+ SAY NAME1 @31
+ SAY UNIDENTIFIED_DESC @32
 COPY ~ChanterKit/r/ADULCSS5.SPL~ ~override~
- SAY NAME1 ~Extra Level 5 Spell~
- SAY UNIDENTIFIED_DESC ~Choosing this ability allows the chanter to cast one additional Level 5 spell.~
+ SAY NAME1 @33
+ SAY UNIDENTIFIED_DESC @34
 COPY ~ChanterKit/r/ADULCSS6.SPL~ ~override~
- SAY NAME1 ~Extra Level 6 Spell~
- SAY UNIDENTIFIED_DESC ~Choosing this ability allows the chanter to cast one additional Level 6 spell.~
+ SAY NAME1 @35
+ SAY UNIDENTIFIED_DESC @36
  
 AT_UNINSTALL ~UNINSTALL "Setup-ChanterKit.tp2" "1"~
 
-BEGIN ~Chanter gains cleric stronghold instead of bard one~
-REQUIRE_COMPONENT ~Setup-ChanterKit.tp2~ ~0~ ~(Chanter Kit main component required.)~
+BEGIN @37
+REQUIRE_COMPONENT ~Setup-ChanterKit.tp2~ ~0~ @38
 
 COMPILE ~ChanterKit/s/AR0900.BAF~
 COMPILE ~ChanterKit/s/AR0901.BAF~
