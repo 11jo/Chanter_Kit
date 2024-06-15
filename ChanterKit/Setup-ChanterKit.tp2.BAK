@@ -32,7 +32,7 @@ LANGUAGE "Francais" "french"
 BEGIN @0
 DESIGNATED 0
 LABEL ~Adul-ChanterKit~
-/*
+
 ADD_KIT ~ADULC0~
  ~ADULC0               1           1           1           1           1           1           1           1~
  ~ADULC0   1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
@@ -42,7 +42,7 @@ ADD_KIT ~ADULC0~
  ~ADULC0               0       0       0       0       15      15~
  ~ADULC0               1       1       1       1       1       1       1       1       1~
  ~ADULC0               0       0       0       0       0       0~
- ~ChanterKit/2da/ADULC0.2da~
+ ~ChanterKit/ADULC0.2da~
  ~K_B_H K_B_D K_B_G K_B_E K_B_HE K_B_HL K_B_HO~
  ~0x00004000   5~
  ~ADULC~
@@ -54,20 +54,20 @@ ADD_KIT ~ADULC0~
  ACTION_IF GAME_IS ~bgee bg2ee iwdee eet~ THEN BEGIN
 	LAF fl#add_kit_ee	STR_VAR kit_name = ADULC0 END
 END
-*/
+
 ADD_KIT ~ADULC~
  ~ADULC                1           1           1           1           1           1           1           1~
- ~ADULC    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+ ~ADULC    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
  ~ADULC                0       9       0       0       16      13~
  ~ADULC                0       0       0       0       0       0~
  ~ADULC                0       0       0       0       17      17~
  ~ADULC                0       0       0       0       15      15~
  ~ADULC                1       1       1       1       1       1       1       1       1~
  ~ADULC                0       0       0       0       0       0~
- ~ChanterKit/2da/ADULC.2da~
- ~K_B_H K_B_D K_B_G K_B_E K_B_HE K_B_HL K_B_HO~ //~~
- ~0x00004000   5~ //~0x00007FC0   5~
- ~ADULD~ // ~ADULC~
+ ~ChanterKit/ADULC.2da~
+ ~~
+ ~0x00007FC0   5~
+ ~ADULC~
  ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
  SAY @1
  SAY @2
@@ -77,9 +77,9 @@ ADD_KIT ~ADULC~
 	LAF fl#add_kit_ee	STR_VAR kit_name = ADULC END
 END
 
-COPY ~ChanterKit/2da/LUADULD.2DA~ ~override~
+COPY ~ChanterKit/LUADULC.2DA~ ~override~
 
-// COPY ~ChanterKit/r/ADULC0.SPL~ ~override~
+COPY ~ChanterKit/r/ADULC0.SPL~ ~override~
 
 COPY ~ChanterKit/r/ADULC0.SPL~ ~override/ADULJO.SPL~
 LPF DELETE_SPELL_EFFECT 

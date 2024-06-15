@@ -1,24 +1,4 @@
 IF
-	Dead("Hellsare")
-	Global("GivenTear","AR2905",0)
-THEN
-	RESPONSE #100
-		GiveItemCreate("Miscb9",Player1,0,0,0) // Tears of Bhaal
-		DisplayString(Myself,2959) // As Sarevok falls, a Tear of Bhaal appears before you and you place it in your pack.
-		SetGlobal("GivenTear","AR2905",1)
-END
-
-IF
-	Class(Player1,FIGHTER_ALL)
-	Global("Player1Wrath","GLOBAL",2)
-	Global("StatBoost","AR2905",0)
-THEN
-	RESPONSE #100
-		SetGlobal("StatBoost","AR2905",1)
-		ReallyForceSpell(Player1,HELL_GAIN_STR)
-END
-
-IF
 	OR(2)
 		Class(Player1,THIEF_ALL)
 		Class(Player1,BARD_ALL)
@@ -29,18 +9,6 @@ THEN
 	RESPONSE #100
 		SetGlobal("StatBoost","AR2905",1)
 		ReallyForceSpell(Player1,HELL_GAIN_DEX)
-END
-
-IF
-	OR(2)
-		Class(Player1,PALADIN_ALL)
-		Class(Player1,RANGER_ALL)
-	Global("Player1Wrath","GLOBAL",2)
-	Global("StatBoost","AR2905",0)
-THEN
-	RESPONSE #100
-		SetGlobal("StatBoost","AR2905",1)
-		ReallyForceSpell(Player1,HELL_GAIN_CON)
 END
 
 IF
@@ -55,35 +23,3 @@ THEN
 		SetGlobal("StatBoost","AR2905",1)
 		ReallyForceSpell(Player1,HELL_GAIN_WIS)
 END
-
-IF
-	Class(Player1,MAGE_ALL)
-	Global("Player1Wrath","GLOBAL",2)
-	Global("StatBoost","AR2905",0)
-THEN
-	RESPONSE #100
-		SetGlobal("StatBoost","AR2905",1)
-		ReallyForceSpell(Player1,HELL_GAIN_INT)
-END
-
-IF
-	Global("Player1Wrath","GLOBAL",2)
-	Global("AbyssPaladinGone","GLOBAL",0)
-	Class(Player1,PALADIN_ALL)
-THEN
-	RESPONSE #100
-		SetGlobal("AbyssPaladinGone","GLOBAL",1)
-		ActionOverride(Player1,RemovePaladinHood())
-END
-
-IF
-	Global("Player1Wrath","GLOBAL",2)
-	Global("AbyssRangerGone","GLOBAL",0)
-	Class(Player1,RANGER_ALL)
-	!Class(Player1,CLERIC_RANGER)
-THEN
-	RESPONSE #100
-		SetGlobal("AbyssRangerGone","GLOBAL",1)
-		ActionOverride(Player1,RemoveRangerHood())
-END
-
