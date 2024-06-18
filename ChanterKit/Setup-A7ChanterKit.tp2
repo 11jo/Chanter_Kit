@@ -18,7 +18,8 @@ ALWAYS
 		reload_array = Ad_reload
 	END
 	
-INCLUDE ~ChanterKit/fl#add_kit_ee.tpa~
+//INCLUDE ~ChanterKit/lib/fl#add_kit_ee.tpa~
+INCLUDE ~ChanterKit/lib/a7#add_kit_ex.tpa~
 
 END
 
@@ -33,54 +34,39 @@ BEGIN @0
 DESIGNATED 0
 LABEL ~Adul-ChanterKit~
 
-ADD_KIT ~ADULC0~
- ~ADULC0               1           1           1           1           1           1           1           1~
- ~ADULC0   1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
- ~ADULC0               0       9       0       0       16      13~
- ~ADULC0               0       0       0       0       0       0~
- ~ADULC0               0       0       0       0       17      17~
- ~ADULC0               0       0       0       0       15      15~
- ~ADULC0               1       1       1       1       1       1       1       1       1~
- ~ADULC0               0       0       0       0       0       0~
- ~ChanterKit/ADULC0.2da~
- ~K_B_H K_B_D K_B_G K_B_E K_B_HE K_B_HL K_B_HO~
- ~0x00004000   5~
- ~ADULC~
- ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
- SAY @1
- SAY @2
- SAY @3
- 
- ACTION_IF GAME_IS ~bgee bg2ee iwdee eet~ THEN BEGIN
-	LAF fl#add_kit_ee	STR_VAR kit_name = ADULC0 END
+LAF ADD_KIT_EX
+INT_VAR
+  kit_class = 5
+  lower     = RESOLVE_STR_REF(@1)
+  mixed     = RESOLVE_STR_REF(@2)
+  help      = RESOLVE_STR_REF(@3)
+  briefdesc = RESOLVE_STR_REF(@3)
+  biography = RESOLVE_STR_REF(@3)
+STR_VAR
+  kit_name  = ~ADULC~
+  unusable  = ~0x00004000~
+  hpclass = ~HPROG~
+  //clascolr = ~~
+  clasweap  = ~1           1           1           1           1           1           1           1~
+  weapprof  = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+  abclasrq  = ~0       9       0       0       16      13~
+  abclsmod  = ~0       0       0       0       0       0~
+  abdcdsrq  = ~0       0       0       0       17      17~
+  abdcscrq  = ~0       0       0       0       15      15~
+  alignmnt  = ~1       1       1       1       1       1       1       1       1~
+  dualclas  = ~0       0       0       0       0       0~
+  clab_path = EVAL ~%MOD_FOLDER%/2da/ADULC.2da~
+  kittable  = ~K_B_H    K_B_D   K_B_G   K_B_E   K_B_HE   K_B_HL   K_B_HO~
+  luabbr    = ~ADULD~
+  stweap    = ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+RET
+  kit_id
 END
 
-ADD_KIT ~ADULC~
- ~ADULC                1           1           1           1           1           1           1           1~
- ~ADULC    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
- ~ADULC                0       9       0       0       16      13~
- ~ADULC                0       0       0       0       0       0~
- ~ADULC                0       0       0       0       17      17~
- ~ADULC                0       0       0       0       15      15~
- ~ADULC                1       1       1       1       1       1       1       1       1~
- ~ADULC                0       0       0       0       0       0~
- ~ChanterKit/ADULC.2da~
- ~~
- ~0x00007FC0   5~
- ~ADULC~
- ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
- SAY @1
- SAY @2
- SAY @3
- 
-  ACTION_IF GAME_IS ~bgee bg2ee iwdee eet~ THEN BEGIN
-	LAF fl#add_kit_ee	STR_VAR kit_name = ADULC END
-END
+COPY ~ChanterKit/2da/LUADULD.2DA~ ~override~
 
-COPY ~ChanterKit/LUADULC.2DA~ ~override~
-
-COPY ~ChanterKit/r/ADULC0.SPL~ ~override~
-
+// COPY ~ChanterKit/r/ADULC0.SPL~ ~override~
+/*
 COPY ~ChanterKit/r/ADULC0.SPL~ ~override/ADULJO.SPL~
 LPF DELETE_SPELL_EFFECT 
 	INT_VAR 
@@ -104,8 +90,8 @@ LPF ADD_SPELL_EFFECT
 	timing=9
 	probability1=100
 	END
-
-COMPILE ~ChanterKit/r/ADULC0.BAF~
+*/
+//COMPILE ~ChanterKit/r/ADULC0.BAF~
 
  // Spells & Abilities
 COPY ~ChanterKit/r/ADULC01.SPL~ ~override~ // Level 1 adjustments
@@ -286,6 +272,8 @@ COPY ~ChanterKit/r/ADULCSS5.SPL~ ~override~
 COPY ~ChanterKit/r/ADULCSS6.SPL~ ~override~
  SAY NAME1 @35
  SAY UNIDENTIFIED_DESC @36
+ 
+AT_UNINSTALL ~UNINSTALL "Setup-ChanterKit.tp2" "1"~
 
 BEGIN @37
 DESIGNATED 37

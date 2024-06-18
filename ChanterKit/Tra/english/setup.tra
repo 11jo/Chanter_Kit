@@ -21,7 +21,7 @@ Disadvantages:
 @4 = ~Sanctum~
 @5 = ~Contegitas~
 @6 = ~Omnimens~
-@7 = ~Salve~
+@7 = ~Salvea~
 @8 = ~Veritas~
 @9 = ~Expulses~
 @10 = ~Expulses
@@ -107,3 +107,56 @@ The spell-like abilities on the Flute are used in the same way that a wand's pow
 @36 = ~Choosing this ability allows the chanter to cast one additional Level 6 spell.~
 @37 = ~Chanter gains cleric stronghold instead of bard one~
 @38 = ~(Chanter Kit main component required.)~
+
+@39 = ~Sanctum
+
+A chant works like a bard song and affects all nearby allies.
+
+- +2 to all saves, protection from fear~
+@40 = ~Contegitas
+
+A chant works like a bard song and affects all nearby allies.
+
+- +33% fire, cold, lightning, and acid resistance~
+@41 = ~Omnimens
+
+A chant works like a bard song and affects all nearby allies.
+
+- immunity to charm, confusion, and hold effects~
+@42 = ~Salvea
+
+A chant works like a bard song and affects all nearby allies.
+
+- heal 1 HP each round, immunity to level drain~
+@43 = ~Veritas
+
+A chant works like a bard song and affects all nearby allies.
+
+- removes all nearby illusions and grants true seeing~
+
+@44 = ~Sanctum
+
+A chant works like a bard song and affects all nearby allies.
+
+Sanctum has been improved by « Improved Chanting »
+
+- +4 to all saves, protection from fear~
+@45 = ~Contegitas
+
+A chant works like a bard song and affects all nearby allies.
+
+Contegitas has been improved by « Improved Chanting »
+
+- +66% fire, cold, lightning, and acid resistance~
+@46 = ~Salvea
+
+A chant works like a bard song and affects all nearby allies.
+
+Salvea has been improved by « Improved Chanting »
+
+- heal 3 HP each round, immunity to level drain~
+
+@47 = ~Priest spells learned~
+@48 = ~Change bard song : Sanctum~
+@49 = ~Change bard song : Improved Sanctum~
+@50 = ~~

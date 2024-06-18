@@ -107,6 +107,59 @@ Les pouvoirs magiques de la flûte sont utilisés de la même manière que les pouvo
 @37 = ~le Chantre gagne la forteresse du Pretre a la place de celle du Barde~
 @38 = ~(Le kit de Chantre doit être installé pour que ce composant puisse être installé.)~
 
+@39 = ~Sanctum
+
+Ce chant fonctionne comme un chant de barde et affecte tous les alliés proches.
+
+- +2 à tous les jets de sauvegarde, protection contre la peur~
+@40 = ~Contegitas
+
+Ce chant fonctionne comme un chant de barde et affecte tous les alliés proches.
+
+- +33 % de résistance au feu, au froid, à l’électricité et à l'acide~
+@41 = ~Omnimens
+
+Ce chant fonctionne comme un chant de barde et affecte tous les alliés proches.
+
+- immunité au charme, à la confusion et à l'immobilisation~
+@42 = ~Salvea
+
+Ce chant fonctionne comme un chant de barde et affecte tous les alliés proches.
+
+- régénère 1 pv par round, immunité au drainage de niveau~
+@43 = ~Veritas
+
+Ce chant fonctionne comme un chant de barde et affecte tous les alliés proches.
+
+- supprime toutes les illusions à proximité et accorde Vision véritable~
+
+@44 = ~Sanctum
+
+Ce chant fonctionne comme un chant de barde et affecte tous les alliés proches.
+
+Sanctum a été amélioré par « Chant amélioré »
+
+- +4 à tous les jets de sauvegarde, protection contre la peur~
+@45 = ~Contegitas
+
+Ce chant fonctionne comme un chant de barde et affecte tous les alliés proches.
+
+Contegitas a été amélioré par « Chant amélioré »
+
+- +66 % de résistance au feu, au froid, à l’électricité et à l'acide~
+@46 = ~Salvea
+
+Ce chant fonctionne comme un chant de barde et affecte tous les alliés proches.
+
+Salvea a été amélioré par « Chant amélioré »
+
+- régénère 3 pv par round, immunité au drainage de niveau~
+
+@47 = ~Sorts de prêtre appris~
+@48 = ~Modification du chant de barde : Sanctum~
+@49 = ~Modification du chant de barde : Sanctum Amélioré~
+@50 = ~~
+
 // WeiDU prompts
 @-1000= "Le mod %TP2_FILE_NAME% contient"
 @-1001= "composants optionnels distincts.
