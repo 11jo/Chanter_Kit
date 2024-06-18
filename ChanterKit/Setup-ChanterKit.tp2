@@ -6,7 +6,7 @@ VERSION ~1.7~
 
 ALWAYS
 	ACTION_DEFINE_ARRAY Ad_reload BEGIN
-	"setup.tra"
+	~setup.tra~
 	END
 	ACTION_DEFINE_ARRAY Ad_noconvert BEGIN END
 		LAF HANDLE_CHARSETS
@@ -24,9 +24,9 @@ END
 
 ASK_EVERY_COMPONENT
 
-LANGUAGE "English" "english"
+LANGUAGE ~English~ ~english~
          ~ChanterKit/Tra/english/setup.tra~
-LANGUAGE "Francais" "french"
+LANGUAGE ~Francais~ ~french~
          ~ChanterKit/Tra/french/setup.tra~
 
 BEGIN @0
@@ -108,8 +108,20 @@ LPF ADD_SPELL_EFFECT
 COMPILE ~ChanterKit/r/ADULC0.BAF~
 */
 
- // Spells & Abilities
-COPY ~ChanterKit/r/ADULC01.SPL~ ~override~ // Level 1 adjustments
+		// Spells & Abilities
+ 
+ // Level 1 adjustments
+COPY ~ChanterKit/r/ADULC01.SPL~ ~override~
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@48)
+		END
+		/*LPF DELETE_SPELL_EFFECT 
+		INT_VAR 
+			opcode=82
+		END*/
 
  // Chant: Sanctum
 COPY ~ChanterKit/r/ADULC02.SPL~ ~override~
@@ -120,12 +132,13 @@ COPY ~ChanterKit/r/ADULC02.SPL~ ~override~
 			opcode=139
 			target=1
 			parameter1= RESOLVE_STR_REF (@48)
-		END // Add extended effect
+		END
  
 COPY ~ChanterKit/r/ADULC02A.SPL~ ~override~
  SAY NAME1 @4
  SAY UNIDENTIFIED_DESC @39
- 
+
+			// Improved
 COPY ~ChanterKit/r/ADULC02B.SPL~ ~override~
  SAY NAME1 @4
  SAY UNIDENTIFIED_DESC @44
@@ -134,7 +147,7 @@ COPY ~ChanterKit/r/ADULC02B.SPL~ ~override~
 			opcode=139
 			target=1
 			parameter1= RESOLVE_STR_REF (@49)
-		END // Add extended effect
+		END
 		
 COPY ~ChanterKit/r/ADULC02C.SPL~ ~override~
  SAY NAME1 @4
@@ -146,43 +159,102 @@ COPY ~ChanterKit/r/ADULC02B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC03.SPL~ ~override~
  SAY NAME1 @5
  SAY UNIDENTIFIED_DESC @40
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@50)
+		END
  
 COPY ~ChanterKit/r/ADULC03A.SPL~ ~override~
+ SAY NAME1 @5
+ SAY UNIDENTIFIED_DESC @40
+
+			// Improved
 COPY ~ChanterKit/r/ADULC03B.SPL~ ~override~
  SAY NAME1 @5
  SAY UNIDENTIFIED_DESC @45
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@51)
+		END
  
 COPY ~ChanterKit/r/ADULC03C.SPL~ ~override~
+ SAY NAME1 @5
+ SAY UNIDENTIFIED_DESC @45
+ 
 COPY ~ChanterKit/r/ADULC03B.BAM~ ~override~
 
  // Chant: Omnimens
 COPY ~ChanterKit/r/ADULC04.SPL~ ~override~
  SAY NAME1 @6
  SAY UNIDENTIFIED_DESC @41
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@54)
+		END
  
 COPY ~ChanterKit/r/ADULC04A.SPL~ ~override~
+ SAY NAME1 @6
+ SAY UNIDENTIFIED_DESC @41
+ 
 COPY ~ChanterKit/r/ADULC04B.BAM~ ~override~
 
- // Chant: Salve
+ // Chant: Salvea
 COPY ~ChanterKit/r/ADULC05.SPL~ ~override~
  SAY NAME1 @7
  SAY UNIDENTIFIED_DESC @42
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@52)
+		END
  
 COPY ~ChanterKit/r/ADULC05A.SPL~ ~override~
+ SAY NAME1 @7
+ SAY UNIDENTIFIED_DESC @42
+ 
+			// Improved
 COPY ~ChanterKit/r/ADULC05B.SPL~ ~override~
  SAY NAME1 @7
  SAY UNIDENTIFIED_DESC @46
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@53)
+		END
  
 COPY ~ChanterKit/r/ADULC05C.SPL~ ~override~
+ SAY NAME1 @7
+ SAY UNIDENTIFIED_DESC @46
+ 
 COPY ~ChanterKit/r/ADULC05B.BAM~ ~override~
 
  // Chant: Veritas
 COPY ~ChanterKit/r/ADULC06.SPL~ ~override~
  SAY NAME1 @8
  SAY UNIDENTIFIED_DESC @43
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@55)
+		END
  
 COPY ~ChanterKit/r/ADULC06A.SPL~ ~override~
+ SAY NAME1 @8
+ SAY UNIDENTIFIED_DESC @43
+ 
 COPY ~ChanterKit/r/ADULC06B.SPL~ ~override~
+ SAY NAME1 @8
+ SAY UNIDENTIFIED_DESC @43
+ 
 COPY ~ChanterKit/r/ADULC06B.BAM~ ~override~
 
  // HLA Chant: Expulses
@@ -191,7 +263,13 @@ COPY ~ChanterKit/r/ADULC07.SPL~ ~override~
  SAY UNIDENTIFIED_DESC @10
  
 COPY ~ChanterKit/r/ADULC07A.SPL~ ~override~
+ SAY NAME1 @9
+ SAY UNIDENTIFIED_DESC @10
+
 COPY ~ChanterKit/r/ADULC07B.SPL~ ~override~
+ SAY NAME1 @9
+ SAY UNIDENTIFIED_DESC @10
+
 COPY ~ChanterKit/r/ADULC07C.EFF~ ~override~
 COPY ~ChanterKit/r/ADULC07D.EFF~ ~override~
 COPY ~ChanterKit/r/ADULC07B.BAM~ ~override~
@@ -234,15 +312,46 @@ COPY ~ChanterKit/r/ADULC13.SPL~ ~override~
  SAY NAME1 @21
  SAY UNIDENTIFIED_DESC @22
  
-COPY ~ChanterKit/r/ADULC13A.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13B.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13C.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13D.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13E.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13F.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13G.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13H.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13I.ITM~ ~override~
+//COPY ~ChanterKit/r/ADULC13A.ITM~ ~override~ // SCRL56.ITM Soin des blessures graves
+//COPY ~ChanterKit/r/ADULC13B.ITM~ ~override~ // SCRL59.ITM Neutralisation du poison
+//COPY ~ChanterKit/r/ADULC13C.ITM~ ~override~ // SCRL5A.ITM Domination mentale
+//COPY ~ChanterKit/r/ADULC13D.ITM~ ~override~ // SCRL5B.ITM Harmonie défensive
+//COPY ~ChanterKit/r/ADULC13E.ITM~ ~override~ // SCRL5D.ITM Protection contre le mal, rayon de 3 m
+//COPY ~ChanterKit/r/ADULC13F.ITM~ ~override~ // SCRL5E.ITM Force de champion
+//COPY ~ChanterKit/r/ADULC13G.ITM~ ~override~ // SCRL5F.ITM Ordres chaotiques
+//COPY ~ChanterKit/r/ADULC13H.ITM~ ~override~ // SCRL62.ITM Colonne de feu
+//COPY ~ChanterKit/r/ADULC13I.ITM~ ~override~ // SCRL63.ITM Rappel à la vie (SPPR504C.ITM)
+
+COPY_EXISTING ~SCRL56.ITM~ ~override/ADULC13A.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL59.ITM~ ~override/ADULC13B.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL5A.ITM~ ~override/ADULC13C.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL5B.ITM~ ~override/ADULC13D.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL5D.ITM~ ~override/ADULC13E.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL5E.ITM~ ~override/ADULC13F.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL5F.ITM~ ~override/ADULC13G.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL62.ITM~ ~override/ADULC13H.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL63.ITM~ ~override/ADULC13I.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+		LPF DELETE_SPELL_EFFECT 
+		INT_VAR 
+			opcode=309
+		END
 
  // HLA: Mystic Flute
 COPY ~ChanterKit/r/ADULC14.SPL~ ~override~
@@ -256,12 +365,13 @@ COPY ~ChanterKit/r/ADULC14.ITM~ ~override~
 
  // Converted Priest Spells
 COPY ~ChanterKit/r/ADULCS.SPL~ ~override~
+ SAY NAME1 @2
 		LPF ADD_SPELL_EFFECT 
 		INT_VAR 
 			opcode=139
 			target=1
 			parameter1= RESOLVE_STR_REF (@47)
-		END // Add extended effect
+		END
 
 COPY_EXISTING ~SPPR111.SPL~ ~override/ADULCS11.SPL~
 	WRITE_SHORT 0x1c ~1~
@@ -588,6 +698,7 @@ COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS1.SPL~
 			check_headers = 1			
 			match_opcode = 42
 			parameter2 =  1
+		END
 //COPY ~ChanterKit/r/ADULCSS1.SPL~ ~override~ //Sort suppl. niveau 1
 //SAY NAME1 @25
 //SAY UNIDENTIFIED_DESC @26
@@ -600,6 +711,7 @@ COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS2.SPL~
 			check_headers = 1			
 			match_opcode = 42
 			parameter2 =  2
+		END
 //COPY ~ChanterKit/r/ADULCSS2.SPL~ ~override~ //Sort suppl. niveau 2
 //SAY NAME1 @27
 //SAY UNIDENTIFIED_DESC @28
@@ -612,6 +724,7 @@ COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS3.SPL~
 			check_headers = 1			
 			match_opcode = 42
 			parameter2 =  4
+		END
 //COPY ~ChanterKit/r/ADULCSS3.SPL~ ~override~ //Sort suppl. niveau 3
 //SAY NAME1 @29
 //SAY UNIDENTIFIED_DESC @30
@@ -624,6 +737,7 @@ COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS4.SPL~
 			check_headers = 1			
 			match_opcode = 42
 			parameter2 =  8
+		END
 //COPY ~ChanterKit/r/ADULCSS4.SPL~ ~override~ //Sort suppl. niveau 4
 //SAY NAME1 @31
 //SAY UNIDENTIFIED_DESC @32
@@ -636,6 +750,7 @@ COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS5.SPL~
 			check_headers = 1			
 			match_opcode = 42
 			parameter2 =  16
+		END
 //COPY ~ChanterKit/r/ADULCSS5.SPL~ ~override~ //Sort suppl. niveau 5
 //SAY NAME1 @33
 //SAY UNIDENTIFIED_DESC @34
@@ -647,6 +762,7 @@ COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS6.SPL~
 //SAY NAME1 @35
 //SAY UNIDENTIFIED_DESC @36
 
+/*
 BEGIN @37
 DESIGNATED 37
 LABEL ~Adul-Chanter_Stronghold~
@@ -696,3 +812,4 @@ COMPILE ~weidu_external/ChanterKit/ExistingBaf/OISIG.BAF~ ~override~
 EXTEND_BOTTOM ~OISIG.BCS~ ~ChanterKit/s/OISIG.BAF~
 
 COMPILE ~ChanterKit/s/ADULCSH.D~
+*/

@@ -133,6 +133,7 @@ Ce chant fonctionne comme un chant de barde et affecte tous les alliés proches.
 
 - supprime toutes les illusions à proximité et accorde Vision véritable~
 
+// Amélioré
 @44 = ~Sanctum
 
 Ce chant fonctionne comme un chant de barde et affecte tous les alliés proches.
@@ -158,7 +159,12 @@ Salvea a été amélioré par « Chant amélioré »
 @47 = ~Sorts de prêtre appris~
 @48 = ~Modification du chant de barde : Sanctum~
 @49 = ~Modification du chant de barde : Sanctum Amélioré~
-@50 = ~~
+@50 = ~Modification du chant de barde : Contegitas~
+@51 = ~Modification du chant de barde : Contegitas Amélioré~
+@52 = ~Modification du chant de barde : Salvea~
+@53 = ~Modification du chant de barde : Salvea Amélioré~
+@54 = ~Modification du chant de barde : Omnimens~
+@55 = ~Modification du chant de barde : Veritas~
 
 // WeiDU prompts
 @-1000= "Le mod %TP2_FILE_NAME% contient"
