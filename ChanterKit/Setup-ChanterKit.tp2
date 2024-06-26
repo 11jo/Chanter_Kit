@@ -5,6 +5,20 @@ README ~ChanterKit/Readme-ChanterKit.txt~
 VERSION ~1.7~
 
 ALWAYS
+
+// EET chapter check
+
+	ACTION_IF GAME_IS ~eet~ BEGIN
+			OUTER_SET bg2_chapter = 12
+	END ELSE BEGIN
+			OUTER_SET bg2_chapter = 0
+	END
+			OUTER_FOR (i = 1 ; i <= 10 ; ++i) BEGIN
+			OUTER_SET bg2_chapter = bg2_chapter + 1
+			OUTER_SPRINT name_source ~bg2_chapter_%i%~
+			OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+	END
+	
 	ACTION_DEFINE_ARRAY Ad_reload BEGIN
 	~setup.tra~
 	END
@@ -762,7 +776,7 @@ COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS6.SPL~
 //SAY NAME1 @35
 //SAY UNIDENTIFIED_DESC @36
 
-/*
+
 BEGIN @37
 DESIGNATED 37
 LABEL ~Adul-Chanter_Stronghold~
@@ -812,4 +826,21 @@ COMPILE ~weidu_external/ChanterKit/ExistingBaf/OISIG.BAF~ ~override~
 EXTEND_BOTTOM ~OISIG.BCS~ ~ChanterKit/s/OISIG.BAF~
 
 COMPILE ~ChanterKit/s/ADULCSH.D~
-*/
+
+COMPILE ~ChanterKit/s/BHARVAL0.D~
+
+COMPILE ~ChanterKit/s/BHARVAL3.D~
+
+COMPILE ~ChanterKit/s/BHARVAL5.D~
+
+COMPILE ~ChanterKit/s/BHNALLA0.D~
+
+COMPILE ~ChanterKit/s/BHNALLA3.D~
+
+COMPILE ~ChanterKit/s/BHOISIG4.D~
+
+COMPILE ~ChanterKit/s/BHOISIG5.D~
+
+COMPILE EVALUATE_BUFFER ~ChanterKit/s/BHOISIG42.D~
+
+COMPILE ~ChanterKit/s/SCSAIN31.D~
