@@ -5,8 +5,22 @@ README ~ChanterKit/Readme-ChanterKit.txt~
 VERSION ~1.7~
 
 ALWAYS
+
+// EET chapter check
+
+	ACTION_IF GAME_IS ~eet~ BEGIN
+			OUTER_SET bg2_chapter = 12
+	END ELSE BEGIN
+			OUTER_SET bg2_chapter = 0
+	END
+			OUTER_FOR (i = 1 ; i <= 10 ; ++i) BEGIN
+			OUTER_SET bg2_chapter = bg2_chapter + 1
+			OUTER_SPRINT name_source ~bg2_chapter_%i%~
+			OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+	END
+	
 	ACTION_DEFINE_ARRAY Ad_reload BEGIN
-	"setup.tra"
+	~setup.tra~
 	END
 	ACTION_DEFINE_ARRAY Ad_noconvert BEGIN END
 		LAF HANDLE_CHARSETS
@@ -18,7 +32,6 @@ ALWAYS
 		reload_array = Ad_reload
 	END
 	
-//INCLUDE ~ChanterKit/lib/fl#add_kit_ee.tpa~
 INCLUDE ~ChanterKit/lib/a7#add_kit_ex.tpa~
 
 END
@@ -66,108 +79,259 @@ END
 COPY ~ChanterKit/2da/LUADULD.2DA~ ~override~
 
 // COPY ~ChanterKit/r/ADULC0.SPL~ ~override~
-/*
-COPY ~ChanterKit/r/ADULC0.SPL~ ~override/ADULJO.SPL~
-LPF DELETE_SPELL_EFFECT 
-	INT_VAR 
-	opcode_to_delete=82 
-	END
-LPF ADD_SPELL_EFFECT 
-	INT_VAR 
-	opcode=290 
-	target=1 
-	parameter1= RESOLVE_STR_REF (@2)
-	parameter2= 1
-	timing=9
-	probability1=100
-	END
-LPF ADD_SPELL_EFFECT 
-	INT_VAR 
-	opcode=290 
-	target=1 
-	parameter1= RESOLVE_STR_REF (@2)
-	parameter2= 0
-	timing=9
-	probability1=100
-	END
-*/
+
 //COMPILE ~ChanterKit/r/ADULC0.BAF~
 
- // Spells & Abilities
-COPY ~ChanterKit/r/ADULC01.SPL~ ~override~ // Level 1 adjustments
-COPY ~ChanterKit/r/ADULC02.SPL~ ~override~ // Chant: Sanctum
+		// Spells & Abilities
+ 
+ // Level 1 adjustments
+COPY ~ChanterKit/r/ADULC01.SPL~ ~override~
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@48)
+		END
+		/*LPF DELETE_SPELL_EFFECT 
+		INT_VAR 
+			opcode=82
+		END*/
+
+ // Chant: Sanctum
+COPY ~ChanterKit/r/ADULC02.SPL~ ~override~
  SAY NAME1 @4
+ SAY UNIDENTIFIED_DESC @39
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@48)
+		END
+ 
 COPY ~ChanterKit/r/ADULC02A.SPL~ ~override~
+ SAY NAME1 @4
+ SAY UNIDENTIFIED_DESC @39
+
+			// Improved
 COPY ~ChanterKit/r/ADULC02B.SPL~ ~override~
  SAY NAME1 @4
+ SAY UNIDENTIFIED_DESC @44
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@49)
+		END
+		
 COPY ~ChanterKit/r/ADULC02C.SPL~ ~override~
+ SAY NAME1 @4
+ SAY UNIDENTIFIED_DESC @44
+ 
 COPY ~ChanterKit/r/ADULC02B.BAM~ ~override~
-COPY ~ChanterKit/r/ADULC03.SPL~ ~override~ // Chant: Contegitas
+
+ // Chant: Contegitas
+COPY ~ChanterKit/r/ADULC03.SPL~ ~override~
  SAY NAME1 @5
+ SAY UNIDENTIFIED_DESC @40
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@50)
+		END
+ 
 COPY ~ChanterKit/r/ADULC03A.SPL~ ~override~
+ SAY NAME1 @5
+ SAY UNIDENTIFIED_DESC @40
+
+			// Improved
 COPY ~ChanterKit/r/ADULC03B.SPL~ ~override~
  SAY NAME1 @5
+ SAY UNIDENTIFIED_DESC @45
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@51)
+		END
+ 
 COPY ~ChanterKit/r/ADULC03C.SPL~ ~override~
+ SAY NAME1 @5
+ SAY UNIDENTIFIED_DESC @45
+ 
 COPY ~ChanterKit/r/ADULC03B.BAM~ ~override~
-COPY ~ChanterKit/r/ADULC04.SPL~ ~override~ // Chant: Omnimens
+
+ // Chant: Omnimens
+COPY ~ChanterKit/r/ADULC04.SPL~ ~override~
  SAY NAME1 @6
+ SAY UNIDENTIFIED_DESC @41
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@54)
+		END
+ 
 COPY ~ChanterKit/r/ADULC04A.SPL~ ~override~
+ SAY NAME1 @6
+ SAY UNIDENTIFIED_DESC @41
+ 
 COPY ~ChanterKit/r/ADULC04B.BAM~ ~override~
-COPY ~ChanterKit/r/ADULC05.SPL~ ~override~ // Chant: Salve
+
+ // Chant: Salvea
+COPY ~ChanterKit/r/ADULC05.SPL~ ~override~
  SAY NAME1 @7
+ SAY UNIDENTIFIED_DESC @42
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@52)
+		END
+ 
 COPY ~ChanterKit/r/ADULC05A.SPL~ ~override~
+ SAY NAME1 @7
+ SAY UNIDENTIFIED_DESC @42
+ 
+			// Improved
 COPY ~ChanterKit/r/ADULC05B.SPL~ ~override~
  SAY NAME1 @7
+ SAY UNIDENTIFIED_DESC @46
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@53)
+		END
+ 
 COPY ~ChanterKit/r/ADULC05C.SPL~ ~override~
+ SAY NAME1 @7
+ SAY UNIDENTIFIED_DESC @46
+ 
 COPY ~ChanterKit/r/ADULC05B.BAM~ ~override~
-COPY ~ChanterKit/r/ADULC06.SPL~ ~override~ // Chant: Veritas
+
+ // Chant: Veritas
+COPY ~ChanterKit/r/ADULC06.SPL~ ~override~
  SAY NAME1 @8
+ SAY UNIDENTIFIED_DESC @43
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@55)
+		END
+ 
 COPY ~ChanterKit/r/ADULC06A.SPL~ ~override~
+ SAY NAME1 @8
+ SAY UNIDENTIFIED_DESC @43
+ 
 COPY ~ChanterKit/r/ADULC06B.SPL~ ~override~
+ SAY NAME1 @8
+ SAY UNIDENTIFIED_DESC @43
+ 
 COPY ~ChanterKit/r/ADULC06B.BAM~ ~override~
-COPY ~ChanterKit/r/ADULC07.SPL~ ~override~ // HLA Chant: Expulses
+
+ // HLA Chant: Expulses
+COPY ~ChanterKit/r/ADULC07.SPL~ ~override~
  SAY NAME1 @9
  SAY UNIDENTIFIED_DESC @10
+ 
 COPY ~ChanterKit/r/ADULC07A.SPL~ ~override~
+ SAY NAME1 @9
+ SAY UNIDENTIFIED_DESC @10
+
 COPY ~ChanterKit/r/ADULC07B.SPL~ ~override~
+ SAY NAME1 @9
+ SAY UNIDENTIFIED_DESC @10
+
 COPY ~ChanterKit/r/ADULC07C.EFF~ ~override~
 COPY ~ChanterKit/r/ADULC07D.EFF~ ~override~
 COPY ~ChanterKit/r/ADULC07B.BAM~ ~override~
-COPY ~ChanterKit/r/ADULC08.SPL~ ~override~ // HLA: Improved Chanting
+
+ // HLA: Improved Chanting
+COPY ~ChanterKit/r/ADULC08.SPL~ ~override~
  SAY NAME1 @11
  SAY UNIDENTIFIED_DESC @12
-COPY ~ChanterKit/r/ADULC09.SPL~ ~override~ // HLA: Restful Meditation
+ 
+  // HLA: Restful Meditation
+COPY ~ChanterKit/r/ADULC09.SPL~ ~override~
  SAY NAME1 @13
  SAY UNIDENTIFIED_DESC @14
+ 
 COPY ~ChanterKit/r/ADULC09B.BAM~ ~override~
-COPY ~ChanterKit/r/ADULC10.SPL~ ~override~ // HLA Spell: Mantra of Purification
+
+ // HLA Spell: Mantra of Purification
+COPY ~ChanterKit/r/ADULC10.SPL~ ~override~
  SAY NAME1 @15
  SAY UNIDENTIFIED_DESC @16
+ 
 COPY ~ChanterKit/r/ADULC10B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC10C.BAM~ ~override~
-COPY ~ChanterKit/r/ADULC11.SPL~ ~override~ // HLA Spell: Warding Whisper
+
+ // HLA Spell: Warding Whisper
+COPY ~ChanterKit/r/ADULC11.SPL~ ~override~
  SAY NAME1 @17
  SAY UNIDENTIFIED_DESC @18
+ 
 COPY ~ChanterKit/r/ADULC11B.BAM~ ~override~
 COPY ~ChanterKit/r/ADULC11C.BAM~ ~override~
-COPY ~ChanterKit/r/ADULC12.SPL~ ~override~ // HLA: Alchemy
+
+ // HLA: Alchemy
+COPY ~ChanterKit/r/ADULC12.SPL~ ~override~
  SAY NAME1 @19
  SAY UNIDENTIFIED_DESC @20
-COPY ~ChanterKit/r/ADULC13.SPL~ ~override~ // HLA: Scribe Scrolls
+ 
+  // HLA: Scribe Scrolls
+COPY ~ChanterKit/r/ADULC13.SPL~ ~override~
  SAY NAME1 @21
  SAY UNIDENTIFIED_DESC @22
-COPY ~ChanterKit/r/ADULC13A.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13B.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13C.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13D.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13E.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13F.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13G.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13H.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC13I.ITM~ ~override~
-COPY ~ChanterKit/r/ADULC14.SPL~ ~override~ // HLA: Mystic Flute
+ 
+//COPY ~ChanterKit/r/ADULC13A.ITM~ ~override~ // SCRL56.ITM Soin des blessures graves
+//COPY ~ChanterKit/r/ADULC13B.ITM~ ~override~ // SCRL59.ITM Neutralisation du poison
+//COPY ~ChanterKit/r/ADULC13C.ITM~ ~override~ // SCRL5A.ITM Domination mentale
+//COPY ~ChanterKit/r/ADULC13D.ITM~ ~override~ // SCRL5B.ITM Harmonie défensive
+//COPY ~ChanterKit/r/ADULC13E.ITM~ ~override~ // SCRL5D.ITM Protection contre le mal, rayon de 3 m
+//COPY ~ChanterKit/r/ADULC13F.ITM~ ~override~ // SCRL5E.ITM Force de champion
+//COPY ~ChanterKit/r/ADULC13G.ITM~ ~override~ // SCRL5F.ITM Ordres chaotiques
+//COPY ~ChanterKit/r/ADULC13H.ITM~ ~override~ // SCRL62.ITM Colonne de feu
+//COPY ~ChanterKit/r/ADULC13I.ITM~ ~override~ // SCRL63.ITM Rappel à la vie (SPPR504C.ITM)
+
+COPY_EXISTING ~SCRL56.ITM~ ~override/ADULC13A.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL59.ITM~ ~override/ADULC13B.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL5A.ITM~ ~override/ADULC13C.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL5B.ITM~ ~override/ADULC13D.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL5D.ITM~ ~override/ADULC13E.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL5E.ITM~ ~override/ADULC13F.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL5F.ITM~ ~override/ADULC13G.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL62.ITM~ ~override/ADULC13H.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+
+COPY_EXISTING ~SCRL63.ITM~ ~override/ADULC13I.ITM~
+	WRITE_LONG 0x1e (THIS BAND BNOT BIT6)	// removes Bard exclusion flag
+		LPF DELETE_SPELL_EFFECT 
+		INT_VAR 
+			opcode=309
+		END
+
+ // HLA: Mystic Flute
+COPY ~ChanterKit/r/ADULC14.SPL~ ~override~
  SAY NAME1 @23
  SAY UNIDENTIFIED_DESC @24
+ 
 COPY ~ChanterKit/r/ADULC14.EFF~ ~override~
 COPY ~ChanterKit/r/ADULC14.ITM~ ~override~
  SAY NAME1 @23
@@ -175,105 +339,403 @@ COPY ~ChanterKit/r/ADULC14.ITM~ ~override~
 
  // Converted Priest Spells
 COPY ~ChanterKit/r/ADULCS.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS11.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS12.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS13.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS14.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS15.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS16.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS17.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS18.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS19.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS1A.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS1B.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS21.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS22.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS23.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS24.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS25.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS26.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS27.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS28.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS29.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS2A.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS2B.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS2C.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS31.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS32.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS33.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS34.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS35.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS36.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS37.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS38.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS39.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS3A.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS3B.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS3C.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS3D.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS3E.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS3F.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS41.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS42.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS43.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS44.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS45.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS46.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS47.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS48.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS49.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS4A.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS4B.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS4C.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS4D.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS4E.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS4F.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS4G.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS51.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS52.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS53.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS54.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS55.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS56.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS57.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS58.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS59.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS5A.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS5B.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS5C.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS5D.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS5E.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS61.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS62.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS63.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS64.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS65.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS66.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS67.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS68.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS69.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS6A.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCS6B.SPL~ ~override~
-COPY ~ChanterKit/r/ADULCSS1.SPL~ ~override~
- SAY NAME1 @25
- SAY UNIDENTIFIED_DESC @26
-COPY ~ChanterKit/r/ADULCSS2.SPL~ ~override~
- SAY NAME1 @27
- SAY UNIDENTIFIED_DESC @28
-COPY ~ChanterKit/r/ADULCSS3.SPL~ ~override~
- SAY NAME1 @29
- SAY UNIDENTIFIED_DESC @30
-COPY ~ChanterKit/r/ADULCSS4.SPL~ ~override~
- SAY NAME1 @31
- SAY UNIDENTIFIED_DESC @32
-COPY ~ChanterKit/r/ADULCSS5.SPL~ ~override~
- SAY NAME1 @33
- SAY UNIDENTIFIED_DESC @34
-COPY ~ChanterKit/r/ADULCSS6.SPL~ ~override~
- SAY NAME1 @35
- SAY UNIDENTIFIED_DESC @36
- 
-AT_UNINSTALL ~UNINSTALL "Setup-ChanterKit.tp2" "1"~
+ SAY NAME1 @2
+		LPF ADD_SPELL_EFFECT 
+		INT_VAR 
+			opcode=139
+			target=1
+			parameter1= RESOLVE_STR_REF (@47)
+		END
+
+COPY_EXISTING ~SPPR111.SPL~ ~override/ADULCS11.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS11.SPL~ ~override~ //Armure de la Foi
+
+COPY_EXISTING ~SPPR101.SPL~ ~override/ADULCS12.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS12.SPL~ ~override~ //Bénédiction
+
+COPY_EXISTING ~SPPR102.SPL~ ~override/ADULCS13.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS13.SPL~ ~override~ //Injonction
+
+COPY_EXISTING ~SPPR103.SPL~ ~override/ADULCS14.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS14.SPL~ ~override~ //Soin des blessures légères
+
+COPY_EXISTING ~SPPR104.SPL~ ~override/ADULCS15.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS15.SPL~ ~override~ //Détection du mal
+
+COPY_EXISTING ~SPPR113.SPL~ ~override/ADULCS16.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS16.SPL~ ~override~ //Fatalité
+
+COPY_EXISTING ~SPPR106.SPL~ ~override/ADULCS17.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS17.SPL~ ~override~ //Pierre magique
+
+COPY_EXISTING ~SPPR107.SPL~ ~override/ADULCS18.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS18.SPL~ ~override~ //Protection contre le mal
+
+COPY_EXISTING ~SPPR108.SPL~ ~override/ADULCS19.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS19.SPL~ ~override~ //Apaisement
+
+COPY_EXISTING ~SPPR109.SPL~ ~override/ADULCS1A.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS1A.SPL~ ~override~ //Sanctuaire
+
+COPY_EXISTING ~SPPR110.SPL~ ~override/ADULCS1B.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS1B.SPL~ ~override~ //Gourdin magique
+
+COPY_EXISTING ~SPPR201.SPL~ ~override/ADULCS21.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS21.SPL~ ~override~ //Aide
+
+COPY_EXISTING ~SPPR202.SPL~ ~override/ADULCS22.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS22.SPL~ ~override~ //Peau d'écorce
+
+COPY_EXISTING ~SPPR203.SPL~ ~override/ADULCS23.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS23.SPL~ ~override~ //Cantique
+
+COPY_EXISTING ~SPPR214.SPL~ ~override/ADULCS24.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS24.SPL~ ~override~ //Puiser dans la puissance divine
+
+COPY_EXISTING ~SPPR205.SPL~ ~override/ADULCS25.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS25.SPL~ ~override~ //Détection des pièges
+
+COPY_EXISTING ~SPPR206.SPL~ ~override/ADULCS26.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS26.SPL~ ~override~ //Lame enflammée
+
+COPY_EXISTING ~SPPR208.SPL~ ~override/ADULCS27.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS27.SPL~ ~override~ //Immobilisation des personnes
+
+COPY_EXISTING ~SPPR209.SPL~ ~override/ADULCS28.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS28.SPL~ ~override~ //Connaissance des alignements
+
+COPY_EXISTING ~SPPR210.SPL~ ~override/ADULCS29.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS29.SPL~ ~override~ //Résistance au feu/au froid
+
+COPY_EXISTING ~SPPR211.SPL~ ~override/ADULCS2A.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS2A.SPL~ ~override~ //Silence dans un rayon de 4,5 m
+
+COPY_EXISTING ~SPPR212.SPL~ ~override/ADULCS2B.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS2B.SPL~ ~override~ //Ralentissement du poison
+
+COPY_EXISTING ~SPPR213.SPL~ ~override/ADULCS2C.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS2C.SPL~ ~override~ //Marteau spirituel
+
+COPY_EXISTING ~SPPR301.SPL~ ~override/ADULCS31.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS31.SPL~ ~override~ //Animation des morts
+
+COPY_EXISTING ~SPPR317.SPL~ ~override/ADULCS32.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS32.SPL~ ~override~ //Guérison des maladies
+
+COPY_EXISTING ~SPPR315.SPL~ ~override/ADULCS33.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS33.SPL~ ~override~ //Soin des blessures moyennes
+
+COPY_EXISTING ~SPPR303.SPL~ ~override/ADULCS34.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS34.SPL~ ~override~ //Dissipation de la magie
+
+COPY_EXISTING ~SPPR304.SPL~ ~override/ADULCS35.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS35.SPL~ ~override~ //Glyphe de garde
+
+COPY_EXISTING ~SPPR313.SPL~ ~override/ADULCS36.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS36.SPL~ ~override~ //Sainte Punition
+
+COPY_EXISTING ~SPPR309.SPL~ ~override/ADULCS37.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS37.SPL~ ~override~ //Élimination des invisibilités
+
+COPY_EXISTING ~SPPR310.SPL~ ~override/ADULCS38.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS38.SPL~ ~override~ //Fourvoiement magique
+
+COPY_EXISTING ~SPPR306.SPL~ ~override/ADULCS39.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS39.SPL~ ~override~ //Protection contre le feu
+
+COPY_EXISTING ~SPPR307.SPL~ ~override/ADULCS3A.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS3A.SPL~ ~override~ //Délivrance de la malédiction
+
+COPY_EXISTING ~SPPR308.SPL~ ~override/ADULCS3B.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS3B.SPL~ ~override~ //Délivrance de la paralysie
+
+COPY_EXISTING ~SPPR311.SPL~ ~override/ADULCS3C.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS3C.SPL~ ~override~ //Obstination bornée
+
+COPY_EXISTING ~SPPR312.SPL~ ~override/ADULCS3D.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS3D.SPL~ ~override~ //Force d'un seul
+
+COPY_EXISTING ~SPPR314.SPL~ ~override/ADULCS3E.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS3E.SPL~ ~override~ //Flétrissure infernale
+
+COPY_EXISTING ~SPPR318.SPL~ ~override/ADULCS3F.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS3F.SPL~ ~override~ //Zone d'air pur
+
+COPY_EXISTING ~SPPR402.SPL~ ~override/ADULCS41.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS41.SPL~ ~override~ //Convocation d'animaux I
+
+COPY_EXISTING ~SPPR414.SPL~ ~override/ADULCS42.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS42.SPL~ ~override~ //Blessures graves
+
+COPY_EXISTING ~SPPR416.SPL~ ~override/ADULCS43.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS43.SPL~ ~override~ //Manteau de terreur
+
+COPY_EXISTING ~SPPR401.SPL~ ~override/ADULCS44.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS44.SPL~ ~override~ //Soin des blessures graves
+
+COPY_EXISTING ~SPPR409.SPL~ ~override/ADULCS45.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS45.SPL~ ~override~ //Protection contre la mort
+
+COPY_EXISTING ~SPPR406.SPL~ ~override/ADULCS46.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS46.SPL~ ~override~ //Harmonie défensive
+
+COPY_EXISTING ~SPPR415.SPL~ ~override/ADULCS47.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS47.SPL~ ~override~ //Vision lointaine
+
+COPY_EXISTING ~SPPR403.SPL~ ~override/ADULCS48.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS48.SPL~ ~override~ //Action libre
+
+COPY_EXISTING ~SPPR412.SPL~ ~override/ADULCS49.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS49.SPL~ ~override~ //Sainte puissance
+
+COPY_EXISTING ~SPPR417.SPL~ ~override/ADULCS4A.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS4A.SPL~ ~override~ //Restauration mineure
+
+COPY_EXISTING ~SPPR405.SPL~ ~override/ADULCS4B.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS4B.SPL~ ~override~ //Domination mentale
+
+COPY_EXISTING ~SPPR413.SPL~ ~override/ADULCS4C.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS4C.SPL~ ~override~ //Protection contre le Plan Négatif
+
+COPY_EXISTING ~SPPR404.SPL~ ~override/ADULCS4D.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS4D.SPL~ ~override~ //Neutralisation du poison
+
+COPY_EXISTING ~SPPR411.SPL~ ~override/ADULCS4E.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS4E.SPL~ ~override~ //Poison
+
+COPY_EXISTING ~SPPR408.SPL~ ~override/ADULCS4F.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS4F.SPL~ ~override~ //Protection contre le mal, rayon de 3 m
+
+COPY_EXISTING ~SPPR407.SPL~ ~override/ADULCS4G.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS4G.SPL~ ~override~ //Protection contre la foudre
+
+COPY_EXISTING ~SPPR510.SPL~ ~override/ADULCS51.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS51.SPL~ ~override~ //Convocation d'animaux II
+
+COPY_EXISTING ~SPPR510.SPL~ ~override/ADULCS52.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS52.SPL~ ~override~ //Blessures critiques
+
+COPY_EXISTING ~SPPR507.SPL~ ~override/ADULCS53.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS53.SPL~ ~override~ //Force de champion
+
+COPY_EXISTING ~SPPR508.SPL~ ~override/ADULCS54.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS54.SPL~ ~override~ //Ordres chaotiques
+
+COPY_EXISTING ~SPPR502.SPL~ ~override/ADULCS55.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS55.SPL~ ~override~ //Soin des blessures critiques
+
+COPY_EXISTING ~SPPR503.SPL~ ~override/ADULCS56.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS56.SPL~ ~override~ //Colonne de feu
+
+COPY_EXISTING ~SPPR512.SPL~ ~override/ADULCS57.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS57.SPL~ ~override~ //Ordre Majeur
+
+COPY_EXISTING ~SPPR509.SPL~ ~override/ADULCS58.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS58.SPL~ ~override~ //Résistance à la magie
+
+COPY_EXISTING ~SPPR514.SPL~ ~override/ADULCS59.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS59.SPL~ ~override~ //Guérison de masse
+
+COPY_EXISTING ~SPPR504.SPL~ ~override/ADULCS5A.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS5A.SPL~ ~override~ //Rappel à la vie
+
+COPY_EXISTING ~SPPR515.SPL~ ~override/ADULCS5B.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS5B.SPL~ ~override~ //Repousser les morts-vivants
+
+COPY_EXISTING ~SPPR513.SPL~ ~override/ADULCS5C.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS5C.SPL~ ~override~ //Magie des vertueux
+
+COPY_EXISTING ~SPPR511.SPL~ ~override/ADULCS5D.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS5D.SPL~ ~override~ //Mise à mort
+
+COPY_EXISTING ~SPPR505.SPL~ ~override/ADULCS5E.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS5E.SPL~ ~override~ //Vision véritable
+
+COPY_EXISTING ~SPPR601.SPL~ ~override/ADULCS61.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS61.SPL~ ~override~ //Serviteur aérien
+
+COPY_EXISTING ~SPPR602.SPL~ ~override/ADULCS62.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS62.SPL~ ~override~ //Convocation d'Animaux III
+
+COPY_EXISTING ~SPPR603.SPL~ ~override/ADULCS63.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS63.SPL~ ~override~ //Barrière de lames
+
+COPY_EXISTING ~SPPR612.SPL~ ~override/ADULCS64.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS64.SPL~ ~override~ //Rayon divin
+
+COPY_EXISTING ~SPPR604.SPL~ ~override/ADULCS65.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS65.SPL~ ~override~ //Conjuration d'animaux
+
+COPY_EXISTING ~SPPR609.SPL~ ~override/ADULCS66.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS66.SPL~ ~override~ //Aube illusoire
+
+COPY_EXISTING ~SPPR608.SPL~ ~override/ADULCS67.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS67.SPL~ ~override~ //Mise à Mal
+
+COPY_EXISTING ~SPPR607.SPL~ ~override/ADULCS68.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS68.SPL~ ~override~ //Guérison
+
+COPY_EXISTING ~SPPR613.SPL~ ~override/ADULCS69.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS69.SPL~ ~override~ //Miroir physique
+
+COPY_EXISTING ~SPPR614.SPL~ ~override/ADULCS6A.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS6A.SPL~ ~override~ //Orbe desséchant de Sol
+
+COPY_EXISTING ~SPPR611.SPL~ ~override/ADULCS6B.SPL~
+	WRITE_SHORT 0x1c ~1~
+//COPY ~ChanterKit/r/ADULCS6B.SPL~ ~override~ //Souvenir merveilleux
+
+
+COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS1.SPL~
+	SAY NAME1 @25
+	SAY UNIDENTIFIED_DESC @26
+	LPF ALTER_SPELL_EFFECT
+		INT_VAR
+			check_headers = 1			
+			match_opcode = 42
+			parameter2 =  1
+		END
+//COPY ~ChanterKit/r/ADULCSS1.SPL~ ~override~ //Sort suppl. niveau 1
+//SAY NAME1 @25
+//SAY UNIDENTIFIED_DESC @26
+
+COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS2.SPL~
+	SAY NAME1 @27
+	SAY UNIDENTIFIED_DESC @28
+	LPF ALTER_SPELL_EFFECT
+		INT_VAR
+			check_headers = 1			
+			match_opcode = 42
+			parameter2 =  2
+		END
+//COPY ~ChanterKit/r/ADULCSS2.SPL~ ~override~ //Sort suppl. niveau 2
+//SAY NAME1 @27
+//SAY UNIDENTIFIED_DESC @28
+
+COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS3.SPL~
+	SAY NAME1 @29
+	SAY UNIDENTIFIED_DESC @30
+	LPF ALTER_SPELL_EFFECT
+		INT_VAR
+			check_headers = 1			
+			match_opcode = 42
+			parameter2 =  4
+		END
+//COPY ~ChanterKit/r/ADULCSS3.SPL~ ~override~ //Sort suppl. niveau 3
+//SAY NAME1 @29
+//SAY UNIDENTIFIED_DESC @30
+
+COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS4.SPL~
+	SAY NAME1 @31
+	SAY UNIDENTIFIED_DESC @32
+	LPF ALTER_SPELL_EFFECT
+		INT_VAR
+			check_headers = 1			
+			match_opcode = 42
+			parameter2 =  8
+		END
+//COPY ~ChanterKit/r/ADULCSS4.SPL~ ~override~ //Sort suppl. niveau 4
+//SAY NAME1 @31
+//SAY UNIDENTIFIED_DESC @32
+
+COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS5.SPL~
+	SAY NAME1 @35
+	SAY UNIDENTIFIED_DESC @34
+	LPF ALTER_SPELL_EFFECT
+		INT_VAR
+			check_headers = 1			
+			match_opcode = 42
+			parameter2 =  16
+		END
+//COPY ~ChanterKit/r/ADULCSS5.SPL~ ~override~ //Sort suppl. niveau 5
+//SAY NAME1 @33
+//SAY UNIDENTIFIED_DESC @34
+
+COPY_EXISTING ~SPCL928.SPL~ ~override/ADULCSS6.SPL~
+	SAY NAME1 @35
+	SAY UNIDENTIFIED_DESC @36
+//COPY ~ChanterKit/r/ADULCSS6.SPL~ ~override~ //Sort suppl. niveau 6
+//SAY NAME1 @35
+//SAY UNIDENTIFIED_DESC @36
+
 
 BEGIN @37
 DESIGNATED 37
@@ -324,3 +786,27 @@ COMPILE ~weidu_external/ChanterKit/ExistingBaf/OISIG.BAF~ ~override~
 EXTEND_BOTTOM ~OISIG.BCS~ ~ChanterKit/s/OISIG.BAF~
 
 COMPILE ~ChanterKit/s/ADULCSH.D~
+
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		COMPILE ~ChanterKit/s/BRUS2_EE.D~
+	END ELSE BEGIN
+		COMPILE ~ChanterKit/s/BRUS2_oBG.D~
+END
+
+COMPILE ~ChanterKit/s/BHARVAL0.D~
+
+COMPILE ~ChanterKit/s/BHARVAL3.D~
+
+COMPILE ~ChanterKit/s/BHARVAL5.D~
+
+COMPILE ~ChanterKit/s/BHNALLA0.D~
+
+COMPILE ~ChanterKit/s/BHNALLA3.D~
+
+COMPILE ~ChanterKit/s/BHOISIG4.D~
+
+COMPILE ~ChanterKit/s/BHOISIG5.D~
+
+COMPILE EVALUATE_BUFFER ~ChanterKit/s/BHOISIG42.D~
+
+COMPILE ~ChanterKit/s/SCSAIN31.D~

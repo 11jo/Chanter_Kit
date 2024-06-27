@@ -53,6 +53,12 @@ character's alignment determines which temple approaches them.
 
 Without this component the chanter gains the playhouse like all bards do.
 
+
+**The componant two has been reviewed to not overwrite files, but it's still experimental and bug report are welcome**
+
+ 
+<details>
+  <summary>Previous comment from the autor :</summary>
 This component patches some dialog files and replaces several scripts.
 For reference, see the full list of modified files below:
 
@@ -64,6 +70,7 @@ NALLABIR.BCS; OISIG.BCS
 To ensure compatibility, you should install this component AFTER the BG2
 BG2 Fixpack. (If you install both mods, that is.)
 
+</details>
 
 
 ## Install:
@@ -140,4 +147,5 @@ V 1.7:
 - Upload on The Gate Project
 - Attempt to avoid files from being overwritten by the second component   
 - ReUpdate fl#add_kit_ee.tpa to last version (2017)
-- Corrected kit name not displayed correctly 
+- Corrected kit name not displayed correctly  
+

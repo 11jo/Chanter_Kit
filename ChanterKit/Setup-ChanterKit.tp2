@@ -46,6 +46,7 @@ LANGUAGE ~Francais~ ~french~
 BEGIN @0
 DESIGNATED 0
 LABEL ~Adul-ChanterKit~
+
 /*
 ADD_KIT ~ADULC0~
  ~ADULC0               1           1           1           1           1           1           1           1~
@@ -69,6 +70,7 @@ ADD_KIT ~ADULC0~
 	LAF fl#add_kit_ee	STR_VAR kit_name = ADULC0 END
 END
 */
+
 ADD_KIT ~ADULC~
  ~ADULC                1           1           1           1           1           1           1           1~
  ~ADULC    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
@@ -94,33 +96,9 @@ END
 COPY ~ChanterKit/2da/LUADULD.2DA~ ~override~
 
 // COPY ~ChanterKit/r/ADULC0.SPL~ ~override~
-/*
-COPY ~ChanterKit/r/ADULC0.SPL~ ~override/ADULJO.SPL~
-LPF DELETE_SPELL_EFFECT 
-	INT_VAR 
-	opcode_to_delete=82 
-	END
-LPF ADD_SPELL_EFFECT 
-	INT_VAR 
-	opcode=290 
-	target=1 
-	parameter1= RESOLVE_STR_REF (@2)
-	parameter2= 1
-	timing=9
-	probability1=100
-	END
-LPF ADD_SPELL_EFFECT 
-	INT_VAR 
-	opcode=290 
-	target=1 
-	parameter1= RESOLVE_STR_REF (@2)
-	parameter2= 0
-	timing=9
-	probability1=100
-	END
 
-COMPILE ~ChanterKit/r/ADULC0.BAF~
-*/
+//COMPILE ~ChanterKit/r/ADULC0.BAF~
+
 
 		// Spells & Abilities
  
@@ -826,6 +804,12 @@ COMPILE ~weidu_external/ChanterKit/ExistingBaf/OISIG.BAF~ ~override~
 EXTEND_BOTTOM ~OISIG.BCS~ ~ChanterKit/s/OISIG.BAF~
 
 COMPILE ~ChanterKit/s/ADULCSH.D~
+
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		COMPILE ~ChanterKit/s/BRUS2_EE.D~
+	END ELSE BEGIN
+		COMPILE ~ChanterKit/s/BRUS2_oBG.D~
+END
 
 COMPILE ~ChanterKit/s/BHARVAL0.D~
 
